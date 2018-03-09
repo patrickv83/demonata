@@ -1,3 +1,5 @@
+import items
+
 def main():
   print "Welcome to Demonata"
 
