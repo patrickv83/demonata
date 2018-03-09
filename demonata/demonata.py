@@ -1,4 +1,4 @@
-import items
+import item
 
 def main():
   print "Welcome to Demonata"
