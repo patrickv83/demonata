@@ -3,7 +3,7 @@ import StringIO
 import sys
 from demonata import demonata
 
-def test_game_starts():
+def game_should_start():
   capturedOutput = StringIO.StringIO()
   sys.stdout = capturedOutput
   demonata.main()
