@@ -12,11 +12,14 @@ Virtual environment allows you to create an isolated environment, ensuring among
 
 - Install python virtualenv as normal for your OS.
 - Create a virtual environment named "venv" in your GIT_HOME directory. It will automatically install python, easy_install and pip in your virtual environment
+
 ```virtualenv venv```
 - Activate your virtual environment. 
 For posix systems (mac, linux):
+
 ```source venv/bin/activate```
 For windows:
+
 ```> venv\Scripts\activate```
 
 
