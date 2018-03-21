@@ -5,10 +5,12 @@ class Room():
     """This is the Room abstract class"""
 
     @abstractmethod
-    def __init__(self, x, y, description):
-        self.x = x
-        self.y = y
+    def __init__(self, description):
         self.description = description
+
+    @abstractmethod
+    def generateDescription(self):
+        self.description = "Nothing to see here"
 
     @abstractmethod
     def printDescription(self):
