@@ -1,6 +1,6 @@
 from abc import ABCMeta, abstractmethod
 
-class Room():
+class Room:
     __metaclass__ = ABCMeta
     """This is the Room abstract class"""
 
