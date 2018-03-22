@@ -1,0 +1,15 @@
+Enemy types:
+ - Brownies (a type of pixie), flying creature, magic attacks, low hitpoints, low armor
+ - Drow (dark elf), magic attack and bludgeoning weapon, high armor, low hitpoints
+ - Goblin, chopping weapon, low armor, medium hitpoints
+ - Orc, punches and kicks, low armor, high hitpoints
+ - Troll, stomps (stuns), high hitpoints, low armor
+ - [Human|elf|goblin|orc] Thug, [bludgeoning|cutting|slashing] weapon, medium armor, medium hitpoints
+ - Demon (boss), magic attack, claw slash, life drain, medium armor, high hitpoints
+
+
+
+Weapon types:
+ - Bludgeon (maul, mace, rock)
+ - Unarmed (claws, stomp, punch, kick)
+ - Chopping (axe, machete)
