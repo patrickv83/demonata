@@ -5,14 +5,14 @@ import Item
 class Character(object):
 	def isDead(self, aSelf):
 		"""@ReturnType boolean"""
-		pass
+		return self.hp <= 0
 
 	def __init__(self, aSelf, aName, aHp):
 		"""@ReturnType Character"""
-		self.___name = None
+		self.name = None
 		"""@AttributeType String"""
-		self.___hp = None
+		self.hp = None
 		"""@AttributeType Int"""
-		self._unnamed_Item_ = None
+		self.unnamed_Item_ = None
 		# @AssociationType Item
 
