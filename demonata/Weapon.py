@@ -1,14 +1,18 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import Item
+from item import Item
+import random
 
 class Weapon(Item):
-	def __init__(self, aSelf, aName, aDesc, aValue, aWDamage):
-		"""@ReturnType Weapon"""
-		self.___wDamage = None
-		"""@AttributeType int"""
+    def __init__(self, name, desc, value, damage):
+        """@ReturnType Weapon"""
+        self.___damage = None
+        """@AttributeType int"""
+        super(Weapon, self).__init__(name, desc, value)
 
-	def __str__(self, aSelf):
-		"""@ReturnType String"""
-		pass
+    def __str__(self):
+        """@ReturnType String"""
+        pass
 
+    def attack(self):
+        return random.randint(1, 1 + self.___damage)
