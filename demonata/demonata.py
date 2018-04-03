@@ -1,15 +1,9 @@
-import Item
-import Character
-import Enemy
-import Demon
+from Item import Item
+from Character import Character
+from Enemy import Enemy
 
 def main():
   print "Welcome to Demonata"
-  joe=Character("Joe", 500);
-  meanJoe=Enemy(joe, 0);
-  demonJoe=Demon(meanJoe);
-
-  brownie=Enemy(Character("Suzy", 10));
 
 if __name__ == "__main__":
     main()

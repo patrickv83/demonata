@@ -10,19 +10,16 @@ SOUTH = (0,-1)
 NORTH = (0,1)
 
 class Player(Character):
-    def __init__(self, *args, **kwargs):
-        coords = kwargs.pop('coords', (0,0))      # coords is an (x,y) tuple
-        inventory = kwargs.pop('inventory', list())
-        gold = kwargs.pop('gold', 10)
+    def __init__(self, name, hp, baseDamage, inventory = list(), gold = 10, weapon = None, coords = (0,0)):
         """@ReturnType Player"""
         self.___inventory = inventory
         """@AttributeType Item*"""
         self.___gold = gold
         """@AttributeType Int"""
-        self.___room = Room(coords[0], coords[1])
+        #self.___room = Room(coords[0], coords[1])
         # @AssociationType Room
         self.___coords = coords
-        super(Player, self).__init__(*args)
+        super(Player, self).__init__(name, hp, baseDamage)
 
     def printInventory(self):
         """@ReturnType void"""
