@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import World
-import Room
+from Room import Room
 
 class Start(Room):
 	def introText(self, aSelf):
