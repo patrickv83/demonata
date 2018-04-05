@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/patrickv83/demonata.svg?branch=master)](https://travis-ci.org/patrickv83/demonata)
+
 # Branching strategy
 In order to maximize commit throughput and avoid version control pitfalls like merge bottlenecks (i.e. having a single dedicated "merge master" to resolve conflicts, merge branches, etc) the strategy should be as follows:
 
