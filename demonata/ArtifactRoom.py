@@ -8,11 +8,9 @@ class ArtifactRoom(Room):
         """@ReturnType Artifact Room"""
         self.___item = item
         """@AttributeType Item"""
-        self._unnamed_World_ = None
-        # @AssociationType World
         super(ArtifactRoom, self).__init__(x, y)
 
-    def addArtifact(self, player):
+    def addArtifact(self):
         """@ReturnType void"""
         pass
 

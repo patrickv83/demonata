@@ -7,14 +7,7 @@ class EmptyRoom(Room):
         """@ReturnType void"""
         pass
 
-    def modifyPlayer(self, player):
-        """@ReturnType void"""
-        pass
-
-    def operation(self):
-        pass
-
-    def __init__(self):
-        self.___World_ = None
-        # @AssociationType World
+    def __init__(self, x, y):
+        self.___x = x
+        self.___y = y
 
