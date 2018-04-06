@@ -1,5 +1,14 @@
 language: python
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install python-pip
+  - sudo pip install --upgrade pip
+  - pip install --upgrade pip
+  - pip install pylint
+
 script:
+  - files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT`
+  - pylint $files
   - python -m pytest -v
 
 notifications:
