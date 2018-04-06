@@ -3,16 +3,16 @@
 import Item
 
 class Character(object):
-	def isDead(self, aSelf):
-		"""@ReturnType boolean"""
-		pass
+    def __init__(self, name, hp):
+        """@ReturnType Character"""
+        self.___name = name
+        """@AttributeType String"""
+        self.___hp = hp
+        """@AttributeType Int"""
+        self.___inventory = list()
+        # @AssociationType Item
 
-	def __init__(self, aSelf, aName, aHp):
-		"""@ReturnType Character"""
-		self.___name = None
-		"""@AttributeType String"""
-		self.___hp = None
-		"""@AttributeType Int"""
-		self._unnamed_Item_ = None
-		# @AssociationType Item
+    def isDead(self):
+        """@ReturnType boolean"""
+        pass
 

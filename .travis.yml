@@ -1,6 +1,16 @@
 language: python
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install python-pip
+  - sudo pip install --upgrade pip
+  - pip install --upgrade pip
+  - pip install pylint
+
 script:
   - python -m pytest -v
+  - if [ -n "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`" ] ; 
+    then pylint "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`";
+    fi
 
 notifications:
     slack: 4398softwareenggroup:9qpjHnEz4rWIRbq6AHynqSsj

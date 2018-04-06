@@ -1,21 +1,13 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import World
-import Room
+from Room import Room
 
 class EmptyRoom(Room):
-	def introText(self, aSelf):
-		"""@ReturnType void"""
-		pass
+    def introText(self):
+        """@ReturnType void"""
+        pass
 
-	def modifyPlayer(self, aSelf, aPlayer):
-		"""@ReturnType void"""
-		pass
-
-	def operation(self):
-		pass
-
-	def __init__(self):
-		self._unnamed_World_ = None
-		# @AssociationType World
+    def __init__(self, x, y):
+        self.___x = x
+        self.___y = y
 
