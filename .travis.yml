@@ -8,8 +8,10 @@ before_install:
 
 script:
   - files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`
-  - `if [ -n "$files" ] ; then pylint "$files" ; fi`
   - python -m pytest -v
+  - if [ -n "$files" ] ; 
+    then pylint "$files" 
+    fi
 
 notifications:
     slack: 4398softwareenggroup:9qpjHnEz4rWIRbq6AHynqSsj
