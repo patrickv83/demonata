@@ -7,9 +7,10 @@ before_install:
   - pip install pylint
 
 script:
-  - files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`
-  - 'if $files then ; pylint $files ; fi'
   - python -m pytest -v
+  - if [ -n "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`" ] ; 
+    then pylint "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`";
+    fi
 
 notifications:
     slack: 4398softwareenggroup:9qpjHnEz4rWIRbq6AHynqSsj
