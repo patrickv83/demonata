@@ -7,7 +7,7 @@ before_install:
   - pip install pylint
 
 script:
-  - files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT`
+  - files=`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`
   - pylint $files
   - python -m pytest -v
 
