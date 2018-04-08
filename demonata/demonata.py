@@ -1,10 +1,6 @@
-from demonata import Item
-from view import mainView
-
-def main():
-  print "Welcome to Demonata"
-
-
+"""Main game file"""
+from controller import Controller
 
 if __name__ == "__main__":
-    main()
+    GC = Controller()
+    GC.start()

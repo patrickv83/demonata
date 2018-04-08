@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-import Item
+from item import Item
 
 class Character(object):
     def __init__(self, name, hp):
