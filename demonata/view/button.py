@@ -9,5 +9,5 @@ class ActionButton(urwid.Button):
         self._w = urwid.AttrMap(urwid.SelectableIcon(caption, len(caption)+1),
                                 None, focus_map='reversed')
 
-    def update_callback(self, callback, args):
+    def update_callback(self, callback, args=None):
         urwid.connect_signal(self, 'click', callback, user_args=args)
