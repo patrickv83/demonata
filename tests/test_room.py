@@ -1,5 +1,5 @@
 import pytest
-from room import Room, EmptyRoom
+from demonata.room import Room, EmptyRoom
 
 def test_abstract_room_instantiate_fails():
     with pytest.raises(TypeError):

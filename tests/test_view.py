@@ -1,5 +1,5 @@
 import pytest
-from view.main_view import GameView
+from demonata.view.main_view import GameView
 
 def test_main_view():
     description_text = 'main game text'
