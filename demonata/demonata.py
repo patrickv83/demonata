@@ -1,4 +1,5 @@
 import item
+import room
 
 def main():
   print "Welcome to Demonata"
