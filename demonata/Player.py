@@ -4,10 +4,10 @@ from Item import Item
 from Room import Room
 from Character import Character
 
-EAST = (1,0)
-WEST = (-1,0)
-SOUTH = (0,-1)
-NORTH = (0,1)
+EAST = (1, 0)
+WEST = (-1, 0)
+SOUTH = (0, -1)
+NORTH = (0, 1)
 
 class Player(Character):
     def __init__(self, name, hp, baseDamage, inventory = list(), gold = 10, weapon = None, coords = (0,0)):
