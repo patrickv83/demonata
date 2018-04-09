@@ -27,7 +27,7 @@ class InitialView(object):
         raise urwid.ExitMainLoop()
 
     def _new_game(self):
-        self._game_loop.widget = self._game_view.build()
+        self._game_loop.widget = self._game_view.screen
 
     def _load_game(self):
         self._exit()
