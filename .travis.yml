@@ -1,9 +1,14 @@
 language: python
+before_script:
+  - pip install -r requirements.txt
+
 script:
   - python -m pytest --cov=demonata -v
   - if [ -n "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`" ] ; 
     then pylint "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`";
     fi
+after_success:
+  - coveralls
 
 notifications:
     slack: 4398softwareenggroup:9qpjHnEz4rWIRbq6AHynqSsj
