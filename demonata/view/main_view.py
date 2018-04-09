@@ -13,8 +13,6 @@ class GameView(object):
         self._description_text = description_text
         self._map_text = map_text
         self._menu_choices = menu_choices
-
-    def build(self):
         self._walker = urwid.SimpleFocusListWalker([])
         self.mini_map = urwid.Pile([])
         menu = urwid.BoxAdapter(urwid.ListBox(self._walker), 6)
@@ -24,9 +22,8 @@ class GameView(object):
         top = urwid.Overlay(self.mini_map, description, align='right',
                             height=('relative', 10), valign='top',
                             width=('relative', 10), min_width=20, min_height=10)
-        screen = urwid.Frame(top, header=None, footer=menu, focus_part='footer')
+        self.screen = urwid.Frame(top, header=None, footer=menu, focus_part='footer')
         self._create_menu(self._menu_choices)
-        return screen
 
     def show_map(self):
         self.mini_map = urwid.LineBox(urwid.Filler(urwid.Text(self._map_text), valign='middle',
