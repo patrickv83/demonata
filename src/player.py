@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from item import Item
-from room import Room
-from character import Character
+from src.item import Item
+from src.room import Room
+from src.character import Character
 
 EAST = (1, 0)
 WEST = (-1, 0)

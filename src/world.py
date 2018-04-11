@@ -1,10 +1,10 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from Player import Player
-from EnemyRoom import EnemyRoom
-from EmptyRoom import EmptyRoom
-from ArtifactRoom import ArtifactRoom
-from Start import Start
+from src.player import Player
+from src.enemy_room import EnemyRoom
+from src.empty_room import EmptyRoom
+from src.artifact_room import ArtifactRoom
+from src.start import Start
 import csv
 
 class World(object):

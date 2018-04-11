@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from character import Character
-from weapon import Weapon
+from src.character import Character
+from src.weapon import Weapon
 import random
 
 class Enemy(Character):

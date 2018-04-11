@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from Item import Item
-from Room import Room
+from src.item import Item
+from src.room import Room
 
 class ArtifactRoom(Room):
     def __init__(self, x, y, item):
