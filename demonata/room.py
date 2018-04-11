@@ -1,44 +1,32 @@
-from abc import ABCMeta, abstractmethod
-
-class Room:
-    __metaclass__ = ABCMeta
-    """This is the Room abstract class"""
-
-    @abstractmethod
-    def __init__(self, x, y, description):
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+class Room(object):
+    
+    # Room Constructor
+    # Precondition: Takes an x and y coordinate (type int) for the location of the room within the world
+    # Postcondition: Returns a room
+    def __init__(self, x, y):
+        # x- and y-coordinates 
         self.x = x
         self.y = y
-        self.description = description
 
-    @abstractmethod
-    def getCoordinates(self):
-        return x,y
-
-    @abstractmethod
+    # generateDescription prints the room description
+    # Preconditions: None
+    # Postcondition: Prints the room description to the screen
+    # Return Type: Void
     def generateDescription(self):
-        self.description = "Nothing to see here"
+        """@ReturnType void
+        This method generates a description based on the location, items and
+        enemies. Not implemented yet."""
+        return
 
-    @abstractmethod
-    def getDescription(self):
-        print self.description
+    # modifyPlayer perfoms any changes to the player character within the room (if any)
+    # Precondition: current player object is passed to the function
+    # Postcondition: Player object is modified appropriately
+    # Return Type: Void
+    def modifyPlayer(self, player):
+        pass
 
-
-class EmptyRoom(Room):
-    """This is the EmptyRoom class"""
-
-    def __init__(self, x, y, description):
-        self.x = x
-        self.y = y
-        self.description = description
-
-    def getCoordinates(self):
-        return self.x, self.y
-
-    def generateDescription(self):
-        """TODO: Generate description based on contents and location of room"""
-        self.description = "Random placeholder room description"
-
-    def getDescription(self):
-        return self.description
-
-
+    # getCoords returns the rooms coordinates within the world in the form of a tuple
+    def getCoords(self):
+        return (self.x, self.y)
