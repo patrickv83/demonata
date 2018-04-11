@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from Room import Room
+from src.room import Room
 
 class Start(Room):
 	def introText(self, aSelf):

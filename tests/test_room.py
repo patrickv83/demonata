@@ -1,5 +1,6 @@
 import pytest
-from demonata.room import Room, EmptyRoom
+from demonata.room import Room
+from demonata.empty_room import EmptyRoom
 
 def test_abstract_room_instantiate_fails():
     with pytest.raises(TypeError):
@@ -11,4 +12,4 @@ def test_empty_room_class_and_methods():
     x, y = er.getCoordinates()
     er.generateDescription()
     desc = er.description
-    assert (x == 1 and y == 1 and desc == "Random placeholder room description")
+    assert (x == 1 and y == 1 and desc == "")

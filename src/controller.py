@@ -1,7 +1,7 @@
-from view.main_view import GameView
-from view.initial_view import InitialView
-#from demonata.world import World
-#from demonata.player import Player
+from src.view.main_view import GameView
+from src.view.initial_view import InitialView
+#from src.world import World
+#from src.player import Player
 import urwid
 
 class Controller(object):
