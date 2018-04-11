@@ -4,12 +4,22 @@
 class Item(object):
     def __init__(self, name, desc, value):
         """@ReturnType Item"""
-        self.___name = None
+        self._name = name
         """@AttributeType String"""
-        self.___desc = None
+        self._desc = desc
         """@AttributeType String"""
-        self.___value = None
+        self._value = value
         """@AttributeType int"""
+        
+    def appraise(self):
+        return self._value
+
+    def describe(self):
+        return self._desc
+
+    def identity(self):
+        return self._name
+
 
     def __str__(self):
         """@ReturnType String"""
