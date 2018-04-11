@@ -1,27 +1,25 @@
-from abc import ABCMeta, abstractmethod
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+class Room(object):
+    def __init__(self, x, y):
+        """@ReturnType Room"""
+        self.___x = x
+        """@AttributeType int"""
+        self.___y = y
+        """@AttributeType int"""
 
-class Room:
-    __metaclass__ = ABCMeta
-    """This is the Room abstract class"""
-
-    @abstractmethod
-    def __init__(self, x, y, description):
-        self.x = x
-        self.y = y
-        self.description = description
-
-    @abstractmethod
-    def getCoordinates(self):
-        return x,y
-
-    @abstractmethod
     def generateDescription(self):
-        self.description = "Nothing to see here"
+        """@ReturnType void
+        This method generates a description based on the location, items and
+        enemies. Not implemented yet."""
+        pass
 
-    @abstractmethod
-    def getDescription(self):
-        print self.description
+    def modifyPlayer(self, player):
+        """@ReturnType void"""
+        pass
 
+    def getCoords(self):
+        return (self.___x, self.___y)
 
 class EmptyRoom(Room):
     """This is the EmptyRoom class"""
@@ -40,5 +38,4 @@ class EmptyRoom(Room):
 
     def getDescription(self):
         return self.description
-
 

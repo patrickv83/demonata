@@ -1,2 +1,5 @@
-pytest==3.0.6
 pylint
+urwid
+pytest==3.0.6
+pytest-cov
+coveralls

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from Item import Item
+from item import Item
 import random
 
 class Weapon(Item):

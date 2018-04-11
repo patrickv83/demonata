@@ -4,22 +4,24 @@
 class Item(object):
     def __init__(self, name, desc, value):
         """@ReturnType Item"""
-        self.___name = name
+        self._name = name
         """@AttributeType String"""
-        self.___desc = desc
+        self._desc = desc
         """@AttributeType String"""
-        self.___value = value
+        self._value = value
         """@AttributeType int"""
-
+        
     def appraise(self):
-        return self.___value
+        return self._value
 
     def describe(self):
-        return self.___desc
+        return self._desc
 
     def identity(self):
-        return self.___name
-    
+        return self._name
+
+
     def __str__(self):
         """@ReturnType String"""
         pass
+
