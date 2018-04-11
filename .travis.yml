@@ -3,7 +3,7 @@ before_script:
   - pip install -r requirements.txt
 
 script:
-  - python -m pytest --cov=demonata -v
+  - python -m pytest --cov=src -v
   - if [ -n "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`" ] ; 
     then pylint "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`";
     fi
