@@ -1,6 +1,6 @@
 import unittest
-from demonata.enemy import Enemy
-from demonata.weapon import Weapon
+from src.enemy import Enemy
+from src.weapon import Weapon
 
 e = Enemy("mean joe", 15)
 f = Enemy("sword gumby", 25, 3, weapon = Weapon("sword", "neat shiny sword", 3, 5))
