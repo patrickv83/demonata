@@ -7,7 +7,7 @@ class EmptyRoom(Room):
     # Precondition: takes an x-, y-coordinates and a description
     def __init__(self, x, y, desc):
         self.description = desc
-        super().__init__(x, y)
+        super(EmptyRoom, self).__init__(x, y)
 
     # introText prints the room description
     def introText(self):

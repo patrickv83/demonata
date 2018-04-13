@@ -8,7 +8,7 @@ class EnemyRoom(Room):
 	# EnemyRoom constructor
     def __init__(self, x, y, enemy):
         self.enemy = enemy
-		super().__init__(self, x, y)
+		super(EnemyRoom, self).__init__(self, x, y)
 		
 	# introText prints room description
 	def introText(self):
