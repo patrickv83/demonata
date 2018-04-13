@@ -14,10 +14,7 @@ class Room(object):
     # Preconditions: None
     # Postcondition: Prints the room description to the screen
     # Return Type: Void
-    def generateDescription(self):
-        """@ReturnType void
-        This method generates a description based on the location, items and
-        enemies. Not implemented yet."""
+    def introText(self):
         return
 
     # modifyPlayer perfoms any changes to the player character within the room (if any)
@@ -27,6 +24,6 @@ class Room(object):
     def modifyPlayer(self, player):
         pass
 
-    # getCoords returns the rooms coordinates within the world in the form of a tuple
+    # Postcondition: Returns the room coordinates in a tuple
     def getCoords(self):
         return (self.x, self.y)
