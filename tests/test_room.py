@@ -10,6 +10,6 @@ def test_abstract_room_instantiate_fails():
 def test_empty_room_class_and_methods():
     er = EmptyRoom(1, 1, "")
     x, y = er.getCoordinates()
-    er.generateDescription()
+    er.introText()
     desc = er.description
     assert (x == 1 and y == 1 and desc == "")
