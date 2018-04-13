@@ -4,7 +4,8 @@ from src.room import Room
 
 class EmptyRoom(Room):
 	# EmptyRoom constructor
-    def __init__(self, x, y):
+    def __init__(self, x, y, desc):
+		self.description = desc
         super().__init__(x, y)
 	
 	# introText displays the room description
