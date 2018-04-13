@@ -6,7 +6,7 @@ from src.room import Room
 class ArtifactRoom(Room):
     def __init__(self, x, y, item):
         self.item = item
-        super(ArtifactRoom, self).__init__(x, y)
+        super().__init__(x, y)
 
 	def introText(self):
 		# print room description
