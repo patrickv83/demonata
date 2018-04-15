@@ -12,13 +12,13 @@ NORTH = (0, 1)
 class Player(Character):
     def __init__(self, name, hp, baseDamage, inventory = list(), gold = 10, weapon = None, coords = (0,0)):
         """@ReturnType Player"""
-        self.___inventory = inventory
+        self._inventory = inventory
         """@AttributeType Item*"""
-        self.___gold = gold
+        self._gold = gold
         """@AttributeType Int"""
-        #self.___room = Room(coords[0], coords[1])
+        #self._room = Room(coords[0], coords[1])
         # @AssociationType Room
-        self.___coords = coords
+        self._coords = coords
         super(Player, self).__init__(name, hp, baseDamage)
 
     def printInventory(self):
@@ -26,37 +26,37 @@ class Player(Character):
         pass
 
     def addItem(self, item):
-        self.___inventory.append(item)
+        self._inventory.append(item)
 
     def addGold(self, gold):
         """@ReturnType void"""
-        self.___gold += gold
+        self._gold += gold
 
     def getGold(self):
         """@ReturnType int"""
-        return self.___gold
+        return self._gold
 
     def setRoom(self, room):
         """@ReturnType void"""
-        self.___room = room
+        self._room = room
         
     def getLocation(self):
-        return self.___room.getCoords()
+        return self._room.getCoords()
 
-    def ___move(self, direction = []):
-        coordList = list(self.___coords)
+    def _move(self, direction = []):
+        coordList = list(self._coords)
         x = coordList[0] + direction[0]
         y = coordList[1] + direction[1]
-        self.___coords = (x,y)
+        self._coords = (x,y)
 
     def move_north(self):
-        self.___move(NORTH)
+        self._move(NORTH)
 
     def move_south(self):
-        self.___move(SOUTH)
+        self._move(SOUTH)
 
     def move_west(self):
-        self.___move(WEST)
+        self._move(WEST)
 
     def move_east(self):
-        self.___move(EAST)
+        self._move(EAST)
