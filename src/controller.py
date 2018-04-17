@@ -1,12 +1,20 @@
 from src.view.main_view import GameView
 from src.view.initial_view import InitialView
+from src.player import Player
 from src.world import World
 
 import urwid
 
 class Controller(object):
     def __init__(self):
-        self._game_view = GameView('Main game text', "Map", ['Choice1', 'Choice2', 'Choice3'])
+
+        self.player = Player("Patrick", 10, 15)
+        self.world = World(self.player)
+
+        self._game_view = GameView(self.world.getDescriptionText(), self.world.getMapText(), 
+                                   self.world.getDirectionOptions(), self.world.getActionOptions(),
+                                   self.world.getGameOptions())
+
         self._initial_view = InitialView(['New game', 'Load game', 'Exit'], 
                                          self._game_view, game_loop=None)
         self._loop = urwid.MainLoop(self._initial_view.screen, 
