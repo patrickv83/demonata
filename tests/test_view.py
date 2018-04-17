@@ -13,9 +13,9 @@ class gvTest():
         self.option2 = 'Load game'
         self.option3 = 'Exit game'
         self.view = GameView(self.description_text, self.map_text, 
-                             [self.dir1, self.dir2],
-                             [self.action1, self.action2],
-                             [self.option1, self.option2, self.option3])
+                             directions=[self.dir1, self.dir2],
+                             actions=[self.action1, self.action2],
+                             gameOpts=[self.option1, self.option2, self.option3])
 
 def test_main_view():
     test = gvTest()

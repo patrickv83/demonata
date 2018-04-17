@@ -104,3 +104,11 @@ class World(object):
             ReturnType list of strings """
         options = ["Save", "Load", "Exit game"]
         return options
+
+    def movePlayer(self, direction):
+        """ This method updates the player's current location and instantiates a room if necessary 
+            ReturnType None """
+        self._player.move(direction)
+        self._playerLocation = self._player.getLocation()
+        # if roomKey not in visitedRooms:
+        #     self.generateRoom()

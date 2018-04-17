@@ -11,9 +11,11 @@ class Controller(object):
         self.player = Player("Patrick", 10, 15)
         self.world = World(self.player)
 
-        self._game_view = GameView(self.world.getDescriptionText(), self.world.getMapText(), 
-                                   self.world.getDirectionOptions(), self.world.getActionOptions(),
-                                   self.world.getGameOptions())
+        self._game_view = GameView(self.world.getDescriptionText(), self.world.getMapText(),
+                                   directions=self.world.getDirectionOptions(),
+                                   actions=self.world.getActionOptions(),
+                                   gameOpts=self.world.getGameOptions(),
+                                   controller=self)
 
         self._initial_view = InitialView(['New game', 'Load game', 'Exit'], 
                                          self._game_view, game_loop=None)
