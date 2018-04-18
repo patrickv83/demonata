@@ -7,7 +7,7 @@ e = Enemy("Brownie", 10, 2, EnemyType.BROWNIE)
 p = Player("sword gumby", 25, 3, weapon = Weapon("sword", "neat shiny sword", 3, 5))
 
 def test_player_instantiate():
-    assert (p.getName() == "sword gumby" and p.getHP() == 25 and p.getWeapon() == None)
+    assert (p.getName() == "sword gumby" and p.getHP() == 25)
 
 def test_player_damage():
     p.takeDamage(5)
