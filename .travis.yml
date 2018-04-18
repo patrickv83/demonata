@@ -1,10 +1,15 @@
 language: python
-before_script:
-  - pip install -r requirements.txt
 
 script:
   - python -m pytest --cov=src -v
-  - pylint src/*.py
+  - pylint src/*.py > pylint_out
+
+after_script:
+  - curl -H "Authorization: token ${GITHUB_TOKEN}" -X POST \
+        -d "{\"body\": \"$(cat pylint_out)\"}" \
+        "https://api.github.com/repos/${TRAVIS_REPO_SLUG}/issues/${TRAVIS_PULL_REQUEST}/comments"
+  - rm pylint_out
+
 after_success:
   - coveralls
 
