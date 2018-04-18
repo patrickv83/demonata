@@ -2,7 +2,11 @@ import unittest
 from src.enemy import *
 #from src.weapon import Weapon
 
-e = Brownie()
+name = "Some Name"
+hp = 10
+dmg = 2
+enemyType = BROWNIE
+e = Enemy(name, hp, dmg, enemyType)
 #d = Drow()
 #g = Goblin()
 #t = Thug()
