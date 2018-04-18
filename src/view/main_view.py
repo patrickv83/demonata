@@ -3,7 +3,6 @@ and a dynamically generated player actions menu on the bottom """
 import urwid
 
 from src.view.button import ActionButton
-from src.world import World
 
 class GameView(object):
     """ The GameView class"""
@@ -17,17 +16,16 @@ class GameView(object):
         self.miniMap = urwid.Pile([])
         if self._mapText: self.showMap()
 
-        self._directions = kwargs['directions']
-        actions = kwargs['actions']
-        gameOpts = kwargs['gameOpts']
+        directions = kwargs['directions']
+        actions = kwargs.pop('actions', None)
+        gameOpts = kwargs.pop('gameOpts', None)
         self._controller = kwargs.pop('controller', None)
 
         # Menu stuff
-        self._directionMenu = self.createDirectionMenu()
         actionMenu = urwid.Pile([ActionButton(action, self._actionCallback) for action in actions])
         optionMenu = urwid.Pile([ActionButton(opt, self._optionCallback) for opt in gameOpts])
         self._walker = urwid.SimpleFocusListWalker([])
-        cols = urwid.Columns([('weight', 20, self._directionMenu),
+        cols = urwid.Columns([('weight', 20, self.createDirectionMenu(directions)),
                               ('weight', 40, actionMenu),
                               ('weight', 30, optionMenu)], dividechars=2)
         self._walker.append(cols)
@@ -57,28 +55,9 @@ class GameView(object):
     def updateDescription(self, newText):
         self.description.base_widget.set_text(newText)
 
-    def createDirectionMenu(self):
-        return urwid.Pile([ActionButton(direction, self._moveCallback) 
-                           for direction in self._directions])
-
-    def _optionCallback(self, button):
-        pass
-
-    def _actionCallback(self, button):
-        pass
-
-    def _moveCallback(self, button):
-        functions = {'move_north': (self._controller.world.movePlayer, World.NORTH),
-                     'move_south': (self._controller.world.movePlayer, World.SOUTH),
-                     'move_east': (self._controller.world.movePlayer, World.EAST),
-                     'move_west': (self._controller.world.movePlayer, World.WEST)}
-        label = button._w.original_widget.text.lower().replace(' ', '_')
-        if label in functions:
-            functions[label][0](functions[label][1])
-        self.updateDescription(self._controller.world.getDescriptionText())
-        self._directions = self._controller.world.getDirectionOptions()
-        self._directionMenu = self.createDirectionMenu()
-        self._controller._loop.draw_screen()
+    def createDirectionMenu(self, directions):
+        return urwid.Pile([ActionButton(direction, self._controller.moveCallback) 
+                           for direction in directions])
 
     def updateMap(self, text):
         self._mapText = text
