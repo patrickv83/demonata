@@ -7,12 +7,13 @@ import urwid
 from src.view.main_view import GameView
 from src.view.initial_view import InitialView
 from src.player import Player
-from src.enemy_room import EnemyRoom
-from src.empty_room import EmptyRoom
-from src.artifact_room import ArtifactRoom
+#from src.enemy_room import EnemyRoom
+#from src.empty_room import EmptyRoom
+#from src.artifact_room import ArtifactRoom
 
 class Controller(object):
-    """ The controller class - holds the map, instantiates the rooms, tracks the player and enemies """
+    """ The controller class - holds the map, instantiates the rooms, tracks the
+        player and enemies """
     EAST = (1, 0)
     WEST = (-1, 0)
     SOUTH = (0, -1)
@@ -31,23 +32,25 @@ class Controller(object):
         self._currentRoom = None
         self.loadFile('src/data/world.csv')
 
-        self._game_view = GameView(self.getDescriptionText(), self.getMapText(),
-                                   directions=self.getDirectionOptions(),
-                                   actions=self.getActionOptions(),
-                                   gameOpts=self.getGameOptions(),
-                                   controller=self)
+        self._gameView = GameView(self.getDescriptionText(), self.getMapText(),
+                                  directions=self.getDirectionOptions(),
+                                  actions=self.getActionOptions(),
+                                  gameOpts=self.getGameOptions(),
+                                  controller=self)
 
-        self._initial_view = InitialView(['New game', 'Load game', 'Exit'], 
-                                         self._game_view, game_loop=None)
-        self._loop = urwid.MainLoop(self._initial_view.screen, 
+        self._initialView = InitialView(['New game', 'Load game', 'Exit'],
+                                        self._gameView, game_loop=None)
+        self._loop = urwid.MainLoop(self._initialView.screen,
                                     palette=[('reversed', 'standout', '')])
-        self._initial_view.set_game_loop(self._loop)
+        self._initialView.set_game_loop(self._loop)
 
 
     def start(self):
+        """ Start the main game loop """
         self._loop.run()
 
     def stop(self):
+        """ Stop the main game loop """
         self._loop.stop()
 
     def loadFile(self, mapFile):
@@ -129,7 +132,7 @@ class Controller(object):
         return options
 
     def movePlayer(self, direction):
-        """ This method updates the player's current location and instantiates a room if necessary 
+        """ This method updates the player's current location and instantiates a room if necessary
             ReturnType None """
         self._player.move(direction)
         self._playerLocation = self._player.getLocation()
@@ -137,6 +140,7 @@ class Controller(object):
         #     self.generateRoom()
 
     def moveCallback(self, button):
+        """ This method updates the gameView object every time the player moves """
         functions = {'move_north': (self.movePlayer, Controller.NORTH),
                      'move_south': (self.movePlayer, Controller.SOUTH),
                      'move_east': (self.movePlayer, Controller.EAST),
@@ -144,14 +148,16 @@ class Controller(object):
         label = button._w.original_widget.text.lower().replace(' ', '_')
         if label in functions:
             functions[label][0](functions[label][1])
-        self._game_view.updateDescription(self.getDescriptionText())
-        self._game_view._walker[0].contents[0] = (self._game_view.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
+        self._gameView.updateDescription(self.getDescriptionText())
+        self._gameView.walker[0].contents[0] = \
+           (self._gameView.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
 
     def optionCallback(self, button):
+        """ This method updates the gameView object whenever the player uses the
+            game options menu (save/load/quit/etc) """
         pass
 
     def actionCallback(self, button):
+        """ This method updates the gameView object whenever the player performs an action from
+            the action menu """
         pass
-
-
-

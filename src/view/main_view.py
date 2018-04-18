@@ -22,14 +22,16 @@ class GameView(object):
         self._controller = kwargs.pop('controller', None)
 
         # Menu stuff
-        actionMenu = urwid.Pile([ActionButton(action, self._controller.actionCallback) for action in actions])
-        optionMenu = urwid.Pile([ActionButton(opt, self._controller.optionCallback) for opt in gameOpts])
-        self._walker = urwid.SimpleFocusListWalker([])
+        actionMenu = urwid.Pile([ActionButton(action, self._controller.actionCallback)
+                                 for action in actions])
+        optionMenu = urwid.Pile([ActionButton(opt, self._controller.optionCallback)
+                                 for opt in gameOpts])
+        self.walker = urwid.SimpleFocusListWalker([])
         cols = urwid.Columns([('weight', 20, self.createDirectionMenu(directions)),
                               ('weight', 40, actionMenu),
                               ('weight', 30, optionMenu)], dividechars=2)
-        self._walker.append(cols)
-        self.menu = urwid.BoxAdapter(urwid.ListBox(self._walker), 6)
+        self.walker.append(cols)
+        self.menu = urwid.BoxAdapter(urwid.ListBox(self.walker), 6)
 
 
 
@@ -56,7 +58,7 @@ class GameView(object):
         self.description.base_widget.set_text(newText)
 
     def createDirectionMenu(self, directions):
-        return urwid.Pile([ActionButton(direction, self._controller.moveCallback) 
+        return urwid.Pile([ActionButton(direction, self._controller.moveCallback)
                            for direction in directions])
 
     def updateMap(self, text):

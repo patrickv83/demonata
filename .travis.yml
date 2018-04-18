@@ -4,9 +4,7 @@ before_script:
 
 script:
   - python -m pytest --cov=src -v
-  - if [ -n "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`" ] ; 
-    then pylint "`git diff-tree --no-commit-id --name-only -r $TRAVIS_COMMIT | grep .py`";
-    fi
+  - pylint src/*.py
 after_success:
   - coveralls
 
