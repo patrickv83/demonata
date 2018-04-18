@@ -147,10 +147,10 @@ class Controller(object):
         self._game_view.updateDescription(self.getDescriptionText())
         self._game_view._walker[0].contents[0] = (self._game_view.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
 
-    def _optionCallback(self, button):
+    def optionCallback(self, button):
         pass
 
-    def _actionCallback(self, button):
+    def actionCallback(self, button):
         pass
 
 

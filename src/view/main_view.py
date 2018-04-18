@@ -22,8 +22,8 @@ class GameView(object):
         self._controller = kwargs.pop('controller', None)
 
         # Menu stuff
-        actionMenu = urwid.Pile([ActionButton(action, self._actionCallback) for action in actions])
-        optionMenu = urwid.Pile([ActionButton(opt, self._optionCallback) for opt in gameOpts])
+        actionMenu = urwid.Pile([ActionButton(action, self._controller.actionCallback) for action in actions])
+        optionMenu = urwid.Pile([ActionButton(opt, self._controller.optionCallback) for opt in gameOpts])
         self._walker = urwid.SimpleFocusListWalker([])
         cols = urwid.Columns([('weight', 20, self.createDirectionMenu(directions)),
                               ('weight', 40, actionMenu),
