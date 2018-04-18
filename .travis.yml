@@ -4,8 +4,9 @@ before_script:
 
 script:
   - python -m pytest --cov=src -v
-  - if [ -n "`git diff --name-only --diff-filter=AM $TRAVIS_BRANCH...$TRAVIS_PULL_REQUEST_BRANCH | grep .py`" ] ; 
-    then pylint "`git diff --name-only --diff-filter=AM $TRAVIS_BRANCH...$TRAVIS_PULL_REQUEST_BRANCH | grep .py`";
+  - export FILELIST=$(git diff --name-only --diff-filter=AM $TRAVIS_BRANCH...$TRAVIS_PULL_REQUEST_SHA | grep .*\.py)
+  - if [ -n "$FILELIST" ] ; 
+    then pylint "$FILELIST";
     fi
 after_success:
   - coveralls
