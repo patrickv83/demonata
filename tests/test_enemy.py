@@ -1,5 +1,5 @@
 import unittest
-import Enemy
+from src.enemy import Enemy, Brownie
 #from src.weapon import Weapon
 
 e = Brownie()
