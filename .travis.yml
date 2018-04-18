@@ -4,8 +4,8 @@ before_script:
 
 script:
   - python -m pytest --cov=src -v
-  - if [ -n "`git diff --name-only $TRAVIS_COMMIT_RANGE | grep .py`" ] ; 
-    then pylint "`git diff --name-only $TRAVIS_COMMIT_RANGE | grep .py`";
+  - if [ -n "`git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH | grep .py`" ] ; 
+    then pylint "`git diff --name-only --diff-filter=AM HEAD...$TRAVIS_BRANCH | grep .py`";
     fi
 after_success:
   - coveralls
