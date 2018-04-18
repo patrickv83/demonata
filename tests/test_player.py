@@ -1,9 +1,9 @@
 import unittest
 from src.player import Player
-from src.enemy import Enemy
+from src.enemy import *
 from src.weapon import Weapon
 
-e = Brownie()
+e = Enemy("Brownie", 10, 2, EnemyType.BROWNIE)
 p = Player("sword gumby", 25, 3, weapon = Weapon("sword", "neat shiny sword", 3, 5))
 
 def test_player_instantiate():
