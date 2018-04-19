@@ -37,9 +37,9 @@ class Player(Character):
         """@ReturnType int"""
         return self.___gold
 
-#    def setRoom(self, room):
-#        """@ReturnType void"""
-#        self.___room = room
+    def setRoom(self, room):
+        """@ReturnType void"""
+        self.___room = room
 
     def getLocation(self):
         return self.___room.getCoords()
