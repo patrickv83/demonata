@@ -2,16 +2,13 @@ import unittest
 from src.enemy import *
 #from src.weapon import Weapon
 
-name = "Some Name"
-hp = 10
-dmg = 2
-enemyType = EnemyType.BROWNIE
+enemyType = ET.BROWNIE
 e = Brownie()
 #d = Drow()
 #g = Goblin()
 #t = Thug()
 #boss = Demon()
-#f = Enemy("Generic", 25, 3, EnemyType.GOBLIN)
+#f = Enemy("Generic", 25, 3, ET.GOBLIN)
 
 def test_enemy_instantiate():
     assert (e.getName() == "Brownie" and e.getHP() == 10)
