@@ -5,13 +5,13 @@ from src.enemy import *
 name = "Some Name"
 hp = 10
 dmg = 2
-enemyType = ET.BROWNIE
+enemyType = EnemyType.BROWNIE
 e = Brownie()
 #d = Drow()
 #g = Goblin()
 #t = Thug()
 #boss = Demon()
-#f = Enemy("Generic", 25, 3, ET.GOBLIN)
+#f = Enemy("Generic", 25, 3, EnemyType.GOBLIN)
 
 def test_enemy_instantiate():
     assert (e.getName() == "Brownie" and e.getHP() == 10)
