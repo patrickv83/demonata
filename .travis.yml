@@ -8,7 +8,7 @@ script:
   - if [ -n "$FILELIST" ] ; 
     then pylint $FILELIST || exit 0;
     fi
-after_success:
+after_script:
   - coveralls
 
 notifications:
