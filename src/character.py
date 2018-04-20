@@ -3,41 +3,46 @@
 import random
 
 class Character(object):
+    """ Character type """
     def __init__(self, name, hp):
         """@ReturnType Character"""
-        self.___name = name        # @AttributeType String
-        self.___hp = hp            # @AttributeType int
+        self._name = name        # @AttributeType String
+        self._hp = hp            # @AttributeType int
 
     def getName(self):
         """@ReturnType String"""
-        return self.___name
+        return self._name
 
     def setName(self, name):
-        self.___name = name
+        """@ReturnType Void - sets character name"""
+        self._name = name
 
     def getHP(self):
         """@ReturnType int"""
-        return self.___hp
+        return self._hp
 
     def setHP(self, hp):
-        self.___hp = hp
+        """Sets character hp"""
+        self._hp = hp
 
     def heal(self, hp):
-        self.setHP(self.___hp + hp)
+        """Increases character hp"""
+        self.setHP(self._hp + hp)
 
     def takeDamage(self, hp):
-        self.setHP(self.___hp - hp)
+        """Decreases character hp"""
+        self.setHP(self._hp - hp)
 
     def isDead(self):
         """@ReturnType boolean"""
-        return self.___hp <= 0
+        return self._hp <= 0
 
     #def attack(self, target):
      #   """@ReturnType int"""
      #   try:
-     #       weaponDamage = self.___weapon.getDamage()
+     #       weaponDamage = self._weapon.getDamage()
      #   except AttributeError:
      #       weaponDamage = 0
-     #   damage = random.randint(1, 1 + self.___baseDamage + weaponDamage)
+     #   damage = random.randint(1, 1 + self._baseDamage + weaponDamage)
      #   target.takeDamage(damage)
      #   return damage

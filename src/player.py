@@ -23,8 +23,8 @@ class Player(Character):
         super(Player, self).__init__(name, hp)
 
     def printInventory(self):
-        """@ReturnType void"""
-        pass
+        """ Prints player's inventory """
+        print self._inventory
 
     def addItem(self, item):
         """ Add Item <item> to player's inventory
