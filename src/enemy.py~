@@ -21,7 +21,7 @@ class Enemy(Character):
     """ Enemy superclass creates an enemy """
     def __init__(self, name, hp, dmg, enemyType):
         self.damage = dmg
-        self.enemyType = enemyType
+        self.enemy_type = enemyType
         super(Enemy, self).__init__(name, hp)
 
 class Brownie(Enemy):
