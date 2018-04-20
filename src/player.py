@@ -4,14 +4,13 @@
 from src.character import Character
 
 class Player(Character):
-    def __init__(self, name, hp, inventory=None, gold=10, weapon=None, coords = (0, 0)):
     """ Player class, tracks location, HP, equipment/inventory, gold, etc """
     EAST = (1, 0)
     WEST = (-1, 0)
     SOUTH = (0, -1)
     NORTH = (0, 1)
 
-    def __init__(self, name, hp, baseDamage, inventory=None, gold=10, weapon=None, coords=(0, 0)):
+    def __init__(self, name, hp, inventory=None, gold=10, weapon=None, coords=(0, 0)):
         """@ReturnType Player"""
         self._inventory = inventory or []
         """@AttributeType Item*"""
