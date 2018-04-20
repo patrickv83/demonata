@@ -3,6 +3,7 @@
 import random
 
 class Character(object):
+    """ Character type """
     def __init__(self, name, hp):
         """@ReturnType Character"""
         self.___name = name        # @AttributeType String
@@ -13,6 +14,7 @@ class Character(object):
         return self.___name
 
     def setName(self, name):
+        """@ReturnType Void - sets character name"""
         self.___name = name
 
     def getHP(self):
@@ -20,12 +22,15 @@ class Character(object):
         return self.___hp
 
     def setHP(self, hp):
+        """Sets character hp"""
         self.___hp = hp
 
     def heal(self, hp):
+        """Increases character hp"""
         self.setHP(self.___hp + hp)
 
     def takeDamage(self, hp):
+        """Decreases character hp"""
         self.setHP(self.___hp - hp)
 
     def isDead(self):
