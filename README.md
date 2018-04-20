@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/patrickv83/demonata.svg?branch=master)](https://travis-ci.org/patrickv83/demonata)
+[![Build Status](https://travis-ci.org/patrickv83/demonata.svg?branch=master)](https://travis-ci.org/patrickv83/demonata)  [![Coverage Status](https://coveralls.io/repos/github/patrickv83/demonata/badge.svg?branch=master)](https://coveralls.io/github/patrickv83/demonata?branch=master)
 
 # Branching strategy
 In order to maximize commit throughput and avoid version control pitfalls like merge bottlenecks (i.e. having a single dedicated "merge master" to resolve conflicts, merge branches, etc) the strategy should be as follows:
