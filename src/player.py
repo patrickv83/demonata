@@ -10,15 +10,17 @@ class Player(Character):
     SOUTH = (0, -1)
     NORTH = (0, 1)
 
-    def __init__(self, name, hp, baseDamage, inventory=None, gold=10, weapon=None, coords=(0, 0)):
+    def __init__(self, name, hp, inventory=None, gold=10, weapon=None, coords=(0, 0)):
         """@ReturnType Player"""
         self._inventory = inventory or []
         """@AttributeType Item*"""
         self._gold = gold
         """@AttributeType Int"""
+        self._weapon = weapon
+        #self._room = Room(coords[0], coords[1])
         # @AssociationType Room
         self._coords = coords
-        super(Player, self).__init__(name, hp, baseDamage)
+        super(Player, self).__init__(name, hp)
 
     def printInventory(self):
         """@ReturnType void"""

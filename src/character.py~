@@ -1,5 +1,3 @@
-""" Character Module
-    Serves as a superclass to Player and Enemy classes """
 import random
 
 class Character(object):
@@ -10,7 +8,7 @@ class Character(object):
 
     def getName(self):
         """@ReturnType String"""
-        return self.___name
+        return self.___name 
 
     def setName(self, name):
         self.___name = name
@@ -40,4 +38,4 @@ class Character(object):
      #       weaponDamage = 0
      #   damage = random.randint(1, 1 + self.___baseDamage + weaponDamage)
      #   target.takeDamage(damage)
-     #   return damage
+     #   return damage 
