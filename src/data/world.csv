@@ -1,7 +1,9 @@
-0,0,Rrrrring rrrrring. An annoying ringing jolts you from a pleasant daydream. Who could be calling?,"You're in your office, sitting at your run-down old desk ... being a private investigator just doesn't seem pay much these days. At least, not since the Veil ripped open 2 years ago and magic returned to the world. Who wants to spend money on a PI when you can find a locator spell on the internet for free? Maybe it's time to close up shop and ... Oh yeah, the phone is still ringing - maybe you should answer it?","You answer the phone. The caller is a professor of demonology at the city college. Ryan, her graduate assistant, has been missing for several days, and none of her demonic contacts have given her any information as to his whereabouts. She offers to pay your weekly rate of 1000 gold to have you track down her wayward student. Score. The last place she saw Ryan was at a bar just a couple blocks away from your office. That's probably a good place to start."
-0,1,Hallway
-0,2,Hallway
-0,3,Hallway
+0,0,"Rrrrring rrrrring. An annoying ringing jolts you from a pleasant daydream. Who could be calling? You're in your office, sitting at your run-down old desk ... being a private investigator just doesn't seem pay much these days. At least, not since the Veil ripped open 4 years ago and magic returned to the world. Who wants to spend money on a PI when you can find a locator spell on the internet for free? Maybe it's time to close up shop and... Oh yeah, the phone is still ringing - maybe you should answer it? 
+
+You answer the phone. The caller is a well-known professor of demonology at the city college. Cool, you've seen her on TV. Apparently her graduate assistant has been missing for several days, and all of her demonic contacts are 'suspiciously tight-lipped' on the subject. She offers to pay your weekly rate of 1000 gold to have you track down her wayward student. Jackpot! The last place she saw the guy was at a bar just a couple blocks away from your office. That's probably a good place to start."
+0,1,"You're in the hallway outside your office. Search tutorial."
+0,2,"Still in the hallway. How have you never noticed before how long this hallway is? It feels like you've been in here forever, and you can see that you've only covered about two-thirds of the distance. Uh oh, there's your landlord Fyodor! He threatened to cancel your lease if you're late on your rent again... And oh no, he saw you! Maybe you can distract him - ask him some questions, see if you can get him talking. ('Interrogate' tutorial)"
+0,3,"(Combat tutorial)"
 0,4,Street
 -7,4,Street
 -6,4,Street
