@@ -33,6 +33,10 @@ class Consumable(Item):
     def getName(self):
         """ Get the name of the consumable. """
         return self.name
+    
+    def setName(self, name):
+        """@ReturnType Void - sets consumable name"""
+        self._name = name
 
     def consume(self):
         """ When the consumable is consumed, this method must be called.
@@ -44,7 +48,7 @@ class Consumable(Item):
         no uses left, this will return 0. """
         if self.getUses() == 0:
             return 0
-        return self.getValue()
+        return self.appraise()
 
     def __str__(self):
         """@ReturnType String"""

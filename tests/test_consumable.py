@@ -2,23 +2,19 @@ import unittest
 from src.consumable import *
 
 consumableType = CT.BREAD
-e = Bread()
+c = Bread()
 
 def test_consumable_instantiate():
-    assert (e.getName() == "Bread" and e.getUses() == 2 and e.getValue() == 5)
+    assert (c.getName() == "Bread" and c.getUses() == 2 and c.getValue() == 5)
 
 def test_consumable_consume():
-    e.consume()
-    assert e.getUses() == 1
-
-def test_enemy_heal():
-    e.heal(3)
-    assert e.getHP() == 8
+    c.consume()
+    assert c.getUses() == 1
 
 def test_consumable_change():
-    e.setName("half-eaten bread")
-    assert e.getName() == "half-eaten breads"
+    c.setName("half-eaten bread")
+    assert c.getName() == "half-eaten bread"
 
 def test_consumable_empty():
-    e.consume()
-    assert e.getValue() == 0
+    c.consume()
+    assert c.getValue() == 0
