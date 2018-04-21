@@ -33,7 +33,7 @@ class Consumable(Item):
     def getName(self):
         """ Get the name of the consumable. """
         return self.name
-    
+
     def setName(self, name):
         """@ReturnType Void - sets consumable name"""
         self.name = name
@@ -52,7 +52,7 @@ class Consumable(Item):
 
     def __str__(self):
         """@ReturnType String"""
-        return "Name: {0}\nUses: {1}\nValue: {2}".format(self.name, self.uses, self._value)
+        return "Name: {0}\nUses: {1}\nValue: {2}".format(self.name, self.uses, self.getValue())
 
 class MoldyBread(Consumable):
     """Moldy bread causes damage"""
