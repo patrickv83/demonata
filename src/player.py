@@ -31,6 +31,14 @@ class Player(Character):
             @ReturnType void"""
         self._inventory.append(item)
 
+    def consume(self, consumable):
+        """ Consume an item
+            @ReturnType void"""
+        self.heal(consumable.getValue())
+        consumable.consume()
+        if consumable.getUses() == 0:
+            self._inventory.remove(consumable)
+
     def addGold(self, gold):
         """@ReturnType void"""
         self._gold += gold
