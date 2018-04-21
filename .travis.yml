@@ -3,7 +3,6 @@ before_script:
   - pip install -r requirements.txt
 
 script:
-  - python -m pytest --cov=src -v
   - export FILELIST=$(git diff --name-only --diff-filter=AM $TRAVIS_BRANCH...$TRAVIS_PULL_REQUEST_SHA -- . ':(exclude)tests/*.py' | uniq | grep .*\.py)
   - if [ -n "$FILELIST" ] ; 
     then pylint --disable=E $FILELIST || exit 0 ;
@@ -11,6 +10,7 @@ script:
   - if [ -n "$FILELIST" ] ;
     then pylint --disable=all --enable=E $FILELIST ;
     fi
+  - python -m pytest --cov=src -v
 after_success:
   - coveralls
 
