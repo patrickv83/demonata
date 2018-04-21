@@ -32,8 +32,10 @@ class Player(Character):
         self._inventory.append(item)
 
     def consume(self, consumable):
-        """ Consume an item
+        """ Consume an item.  Dead players can't consume items.
             @ReturnType void"""
+        if self.isDead():
+            return
         self.heal(consumable.getValue())
         consumable.consume()
         if consumable.getUses() == 0:

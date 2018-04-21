@@ -2,9 +2,11 @@ import unittest
 from src.player import Player
 from src.enemy import *
 from src.weapon import Weapon
+from src.consumable import *
 
 e = Enemy("Brownie", 10, 2, ET.BROWNIE)
 p = Player("sword gumby", 25, 3, weapon = Weapon("sword", "neat shiny sword", 3, 5))
+bread = Bread();
 
 def test_player_instantiate():
     assert (p.getName() == "sword gumby" and p.getHP() == 25)
@@ -25,7 +27,12 @@ def test_player_name_change():
 #def test_player_attack():
 #    damage = p.attack(e)
 #    assert e.getHP() == (15 - damage)
+def test_player_consumable():
+    p.consume(bread)
+    assert p.getHp() == 23+bread.getValue()
 
 def test_player_dead():
-    p.takeDamage(23)
+    p.takeDamage(28)
     assert p.isDead() == True
+    
+
