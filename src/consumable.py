@@ -36,7 +36,7 @@ class Consumable(Item):
     
     def setName(self, name):
         """@ReturnType Void - sets consumable name"""
-        self._name = name
+        self.name = name
 
     def consume(self):
         """ When the consumable is consumed, this method must be called.
