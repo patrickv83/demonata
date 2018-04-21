@@ -4,7 +4,8 @@ from src.item import Item
 from enum import Enum
 
 # Enumeration for Consumables
-class ConsumableType(Enum):
+class CT(Enum):
+    """ Enumerated list of Consumable Types (CT) """
     MOLDY_BREAD = 1
     BREAD = 2
     APPLE = 3
@@ -12,6 +13,7 @@ class ConsumableType(Enum):
     HONEY_GLAZED_HAM = 5
     
 class Consumable(Item):
+    """ Consumable superclass creates a consumable """
     def __init__(self, name, desc, value, uses, consumableType):
         """@ReturnType Consumable"""
         self.___uses = uses
