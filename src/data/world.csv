@@ -1,79 +1,79 @@
-0,0,"Rrrrring rrrrring. An annoying ringing jolts you from a pleasant daydream. Who could be calling? You're in your office, sitting at your run-down old desk ... being a private investigator just doesn't seem pay much these days. At least, not since the Veil ripped open 4 years ago and magic returned to the world. Who wants to spend money on a PI when you can find a locator spell on the internet for free? Maybe it's time to close up shop and... Oh yeah, the phone is still ringing - maybe you should answer it? 
+0,0,"Office","Rrrrring rrrrring. An annoying ringing jolts you from a pleasant daydream. Who could be calling? You're in your office, sitting at your run-down old desk ... being a private investigator just doesn't seem pay much these days. At least, not since the Veil ripped open 4 years ago and magic returned to the world. Who wants to spend money on a PI when you can find a locator spell on the internet for free? Maybe it's time to close up shop and... Oh yeah, the phone is still ringing - maybe you should answer it? 
 
 You answer the phone. The caller is a well-known professor of demonology at the city college. Cool, you've seen her on TV. Apparently her graduate assistant has been missing for several days, and all of her demonic contacts are 'suspiciously tight-lipped' on the subject. She offers to pay your weekly rate of 1000 gold to have you track down her wayward student. Jackpot! The last place she saw the guy was at a bar just a couple blocks away from your office. That's probably a good place to start."
-0,1,"You're in the hallway outside your office. Search tutorial."
-0,2,"Still in the hallway. How have you never noticed before how long this hallway is? It feels like you've been in here forever, and you can see that you've only covered about two-thirds of the distance. Uh oh, there's your landlord Fyodor! He threatened to cancel your lease if you're late on your rent again... And oh no, he saw you! Maybe you can distract him - ask him some questions, see if you can get him talking. ('Interrogate' tutorial)"
-0,3,"(Combat tutorial)"
-0,4,Street
--7,4,Street
--6,4,Street
--5,4,Street
--4,4,Street
--3,4,Street
--2,4,Street
--1,4,Street
-0,4,Street
-1,4,Street
-2,4,Street
-3,4,Street
-4,4,Street
-5,4,Street
-6,4,Street
-7,4,Street
--7,14,Street
--7,13,Street
--7,12,Street
--7,11,Street
--7,10,Street
--7,9,Street
--7,8,Street
--7,7,Street
--7,6,Street
--7,5,Street
--6,9,Street
--5,9,Street
--4,9,Street
--3,9,Street
--2,9,Street
--1,9,Street
-0,9,Street
-1,9,Street
-2,9,Street
-3,9,Street
-4,9,Street
-5,9,Street
-6,9,Street
-7,9,Street
--6,14,Street
--5,14,Street
--4,14,Street
--3,14,Street
--2,14,Street
--1,14,Street
-0,14,Street
-1,14,Street
-2,14,Street
-3,14,Street
-4,14,Street
-5,14,Street
-6,14,Street
-7,14,Street
--2,5,Street
--2,6,Street
--2,7,Street
--2,8,Street
--2,10,Street
--2,11,Street
--2,12,Street
--2,13,Street
-7,5,Street
-7,6,Street
-7,7,Street
-7,8,Street
-7,10,Street
-7,11,Street
-7,12,Street
-7,13,Street
+0,1,"Search tutorial","You're in the hallway outside your office."
+0,2,"Interrogate tutorial","Still in the hallway. How have you never noticed before how long this hallway is? It feels like you've been in here forever, and you can see that you've only covered about two-thirds of the distance. Uh oh, there's your landlord Fyodor! He threatened to cancel your lease if you're late on your rent again... And oh no, he saw you! Maybe you can distract him - ask him some questions, see if you can get him talking."
+0,3,"Combat tutorial","(Combat tutorial)"
+0,4,"East Maple Street","A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases. "
+-7,4,"West Maple & Alley A", "The intersection of Maple Street and a street the locals call 'Alley A' - FIXFIXFIX"
+-6,4,"West Maple Street","A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+-5,4,"West Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+-4,4,"West Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+-3,4,"West Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+-2,4,"Maple & Main", "FIXFIXFIX"
+-1,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+0,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+1,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+2,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+3,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+4,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+5,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+6,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+7,4,"East Maple Street", "A line of storefronts stretches along this street. Years ago they may have sold ladies’ hats, hardware, or any number of mundane objects, but recently they’ve mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases."
+-7,14,"West Birch & Alley A", "The intersection of Birch Street and a street the locals call 'Alley A' - FIXFIXFIX"
+-7,13,Alley A
+-7,12,Alley A
+-7,11,Alley A
+-7,10,Alley A
+-7,9,"West Mulberry & Alley A", "The intersection of Mulberry Street and a street the locals call 'Alley A' - FIXFIXFIX"
+-7,8,Alley A
+-7,7,Alley A
+-7,6,Alley A
+-7,5,Alley A
+-6,9,"West Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+-5,9,"West Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+-4,9,"West Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+-3,9,"West Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+-2,9,"Mulberry & Main", ""
+-1,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+0,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+1,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+2,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+3,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+4,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+5,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+6,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+7,9,"East Mulberry Street", "As you wander this street of once-stately apartment homes, you’re assaulted by the sour odor of crushed mulberries underfoot.  The cement squares of the sidewalk bend and buckle as roots of gnarled old trees shatter their way through to the sunlight. Aside from the belligerent  squawking of birds overhead, it’s eerily quiet."
+-6,14,"West Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+-5,14,"West Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+-4,14,"West Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+-3,14,"West Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+-2,14,"Birch & Main", "FIXFIXFIX"
+-1,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+0,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+1,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+2,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+3,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+4,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+5,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+6,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+7,14,"East Birch Street", "Sandwiched between blocks of neglect, Birch St. stands proudly out of place. Its modest family homes and townhouses project an  order and cleanliness that is practically suburban, from its stately shade trees to the odd ceramic lawn ornament. You find the sidewalk clean and even, only having to dodge the odd lawn sprinkler."
+-2,5,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,6,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,7,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,8,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,10,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,11,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,12,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+-2,13,"Main Street", "Throngs of people moving in every direction choke the narrow walkway down Main St. Street vendors, their stands taking up even more precious space, hawk everything from knockoff designer bags to love potions. A faint smell of smoke in the air signals a kebab stand in the vicinity. You remind your growling stomach that you have more pressing matters at hand."
+7,5,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,6,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,7,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,8,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,10,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,11,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,12,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
+7,13,"Elm Street", "Large old homes dominate this stretch. Most were sold far below market price in the panic felt by the city’s elites after the emergence of magic. It’s clear that students from the nearby university have taken over the vacated neighborhood, at least if the couches on the porches and vague aroma of marijuana and incense are any indication. Crushed beer cans, textbooks, and the odd spell tome complete the picture."
 -5,5,Bookstore
 -3,12,Grocery
 1,10,Bar

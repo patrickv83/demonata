@@ -61,7 +61,8 @@ class Controller(object):
             csvReader = csv.reader(csvDataFile)
             for row in csvReader:
                 key = "{0}{1}".format(row.pop(0), row.pop(0))
-                self.rooms.update({key: row})
+                roomTitle = row.pop(0)
+                self.rooms.update({key: [roomTitle, row]})
 
     def getPlayerLocation(self):
         """ This method returns the player's current location as a tuple
