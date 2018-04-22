@@ -2,18 +2,19 @@
 # -*- coding: UTF-8 -*-
 """ The controller module """
 import csv
-from urwid import MainLoop
+from sys import exit as exitGame
 import dill
-from sys import exit
-from random import randrange
+from urwid import MainLoop
+
 
 from src.view.main_view import GameView
 from src.view.initial_view import InitialView
 from src.player import Player
 #from src.tutorial_room import TutorialRoom, Office
-from src.enemy_room import EnemyRoom
+#from src.enemy_room import EnemyRoom
 from src.room import Room
-from src.artifact_room import ArtifactRoom
+#from src.artifact_room import ArtifactRoom
+from src.room_factory import roomFactory
 
 class Controller(object):
     """ The controller class - holds the map, instantiates the rooms, tracks the
@@ -30,11 +31,13 @@ class Controller(object):
 
         self._player = Player("Patrick", 15, 10)
         self._playerLocation = startCoords
+        self._room = None
+        self.map = None
         self._currentRoom = None
         self.loadFile('src/data/world.csv')
         self._roomKey = self.getRoomKey()
-        self._visited = {'00': Room(0, 0, self.map['00'][1]), 
-                         '01': Room(0, 0, self.map['01'][1]), 
+        self._visited = {'00': Room(0, 0, self.map['00'][1]),
+                         '01': Room(0, 0, self.map['01'][1]),
                          '02': Room(0, 0, self.map['02'][1]),
                          '03': Room(0, 0, self.map['03'][1])}
 
@@ -82,7 +85,7 @@ class Controller(object):
 
     def getRooms(self):
         """ This method returns the loaded map. It is slated for removal very soon and should
-            not be used 
+            not be used
             @ReturnType dict """
         return self.map
 
@@ -119,9 +122,9 @@ class Controller(object):
     def _canMove(self, direction):
         """ Checks if there is a room in <direction> from current room """
         dirX, dirY = eval('Controller.{}'.format(direction))
-        roomKey = '{}{}'.format(self._playerLocation[0] + dirX, 
+        roomKey = '{}{}'.format(self._playerLocation[0] + dirX,
                                 self._playerLocation[1] + dirY)
-        return roomKey in self.map        
+        return roomKey in self.map
 
     def getDirectionOptions(self):
         """ This method builds the list of directions the player can move
@@ -151,7 +154,7 @@ class Controller(object):
         try:
             self._room = self._visited[self._roomKey]
         except KeyError:
-            self._room = RoomFactory(self._playerLocation[0], 
+            self._room = roomFactory(self._playerLocation[0],
                                      self._playerLocation[1],
                                      self.map[self._roomKey][1])
     def updateGameView(self):
@@ -177,7 +180,7 @@ class Controller(object):
             game options menu (save/load/quit/etc) """
         functions = {'save': self.saveGame,
                      'load': self.loadGame,
-                     'exit_game': exit}
+                     'exit_game': exitGame}
         label = button._w.original_widget.text.lower().replace(' ', '_')
         try:
             functions[label]()
@@ -187,11 +190,11 @@ class Controller(object):
     def actionCallback(self, button):
         """ This method updates the gameView object whenever the player performs an action from
             the action menu """
-        functions = {'pick_up': self._player.addItem} 
+        functions = {'pick_up': self._player.addItem}
 
     def saveGame(self):
         """ This method pickles the controller (self) and player (self._player) to save the current
-            game state 
+            game state
             @ReturnType None """
         with open('saves/patrick_001', 'w+') as f:
             dill.dump(self._player, f)
@@ -200,10 +203,10 @@ class Controller(object):
             dill.dump(self.map, f)
             dill.dump(self._visited, f)
             dill.dump(self._roomKey, f)
-            
+
     def loadGame(self):
         """ This method unpickles the controller (self) and player (self._player) to load the
-            saved game state 
+            saved game state
             @ReturnType None """
         with open('saves/patrick_001') as f:
             self._player = dill.load(f)
@@ -213,4 +216,3 @@ class Controller(object):
             self._visited = dill.load(f)
             self._roomKey = dill.load(f)
             self.updateGameView()
-

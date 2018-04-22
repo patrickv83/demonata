@@ -1,13 +1,13 @@
+""" The item factory module, for generating random Items """
 from random import choice
 
-from item import Item
-#from consumable import Consumable
-from weapon import Weapon
+from src.item import Item
+#from consumable import Consumable # pylint: disable=unused-import
+from src.weapon import Weapon # pylint: disable=unused-import
 
-class ItemFactory(object):
-    # Create Item
-    @staticmethod
-    def create():
-        itemTypes = Item.__subclasses__()
+def itemFactory():
+    """ Precondition: None
+        Postcondition: Returns an instance of the randomly selected Item type"""
+    itemTypes = Item.__subclasses__()
 
-        return itemTypes[choice(itemTypes)]()
+    return itemTypes[choice(itemTypes)]()
