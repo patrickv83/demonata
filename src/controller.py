@@ -121,19 +121,7 @@ class Controller(object):
         dirX, dirY = eval('Controller.{}'.format(direction))
         roomKey = '{}{}'.format(self._playerLocation[0] + dirX, 
                                 self._playerLocation[1] + dirY)
-        return roomKey in self.map
-
-    def generateRoom(self):
-        """ Instantiates a new room from the list of available room types
-            @ReturnType Room """
-        roomTypes = Room.__subclasses__()
-        roomTypes.append(Room)
-        newRoom = roomTypes[choice(roomTypes)](self._playerLocation[0], 
-                                                            self._playerLocation[1],
-                                                            self.map[self._roomKey][1])
-        self._visited.update({self._roomKey: newRoom})
-        return newRoom
-        
+        return roomKey in self.map        
 
     def getDirectionOptions(self):
         """ This method builds the list of directions the player can move
@@ -166,6 +154,10 @@ class Controller(object):
             self._room = RoomFactory(self._playerLocation[0], 
                                      self._playerLocation[1],
                                      self.map[self._roomKey][1])
+    def updateGV(self):
+        self._gameView.updateDescription(self.getDescriptionText())
+        self._gameView.walker[0].contents[0] = \
+           (self._gameView.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
 
     def moveCallback(self, button):
         """ This method updates the gameView object every time the player moves """
@@ -178,9 +170,7 @@ class Controller(object):
             functions[label][0](functions[label][1])
         except KeyError:
             return
-        self._gameView.updateDescription(self.getDescriptionText())
-        self._gameView.walker[0].contents[0] = \
-           (self._gameView.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
+        self.updateGV()
 
     def optionCallback(self, button):
         """ This method updates the gameView object whenever the player uses the
@@ -205,7 +195,6 @@ class Controller(object):
             @ReturnType None """
         with open('patrick_save_001', 'w+') as f:
             dill.dump(self._player, f)
-            dill.dump(self._loop, f)
             dill.dump(self._playerLocation, f)
             dill.dump(self._currentRoom, f)
             dill.dump(self.map, f)
@@ -217,10 +206,11 @@ class Controller(object):
             saved game state 
             @ReturnType None """
         with open('patrick_save_001') as f:
-            dill.load(self._player, f)
-            dill.load(self._loop, f)
-            dill.load(self._playerLocation, f)
-            dill.load(self._currentRoom, f)
-            dill.load(self.map, f)
-            dill.load(self._visited, f)
-            dill.load(self._roomKey, f)
+            self._player = dill.load(f)
+            self._playerLocation = dill.load(f)
+            self._currentRoom = dill.load(f)
+            self.map = dill.load(f)
+            self._visited = dill.load(f)
+            self._roomKey = dill.load(f)
+            self.updateGV()
+
