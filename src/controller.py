@@ -154,7 +154,7 @@ class Controller(object):
             self._room = RoomFactory(self._playerLocation[0], 
                                      self._playerLocation[1],
                                      self.map[self._roomKey][1])
-    def updateGV(self):
+    def updateGameView(self):
         self._gameView.updateDescription(self.getDescriptionText())
         self._gameView.walker[0].contents[0] = \
            (self._gameView.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
@@ -170,7 +170,7 @@ class Controller(object):
             functions[label][0](functions[label][1])
         except KeyError:
             return
-        self.updateGV()
+        self.updateGameView()
 
     def optionCallback(self, button):
         """ This method updates the gameView object whenever the player uses the
@@ -193,7 +193,7 @@ class Controller(object):
         """ This method pickles the controller (self) and player (self._player) to save the current
             game state 
             @ReturnType None """
-        with open('patrick_save_001', 'w+') as f:
+        with open('saves/patrick_001', 'w+') as f:
             dill.dump(self._player, f)
             dill.dump(self._playerLocation, f)
             dill.dump(self._currentRoom, f)
@@ -205,12 +205,12 @@ class Controller(object):
         """ This method unpickles the controller (self) and player (self._player) to load the
             saved game state 
             @ReturnType None """
-        with open('patrick_save_001') as f:
+        with open('saves/patrick_001') as f:
             self._player = dill.load(f)
             self._playerLocation = dill.load(f)
             self._currentRoom = dill.load(f)
             self.map = dill.load(f)
             self._visited = dill.load(f)
             self._roomKey = dill.load(f)
-            self.updateGV()
+            self.updateGameView()
 
