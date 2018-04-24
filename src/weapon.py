@@ -6,16 +6,16 @@ import random
 class Weapon(Item):
     def __init__(self, name, desc, value, damage):
         """@ReturnType Weapon"""
-        self.___damage = damage
-        self.___name = name
+        self._damage = damage
+        self._name = name
         """@AttributeType int"""
         super(Weapon, self).__init__(name, desc, value)
 
     def getDamage(self):
-        return self.___damage
+        return self._damage
 
     def getName(self):
-        return self.___name
+        return self._name
 
     def __str__(self):
         """@ReturnType String"""

@@ -44,7 +44,7 @@ class Player(Character):
             @ReturnType int,int tuple """
         return self._coords
 
-    def move(self, direction=()):
+    def move(self, direction):
         """ Update player's current location
             @ReturnType void"""
         self._coords = (self._coords[0] + direction[0],
