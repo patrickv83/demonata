@@ -11,7 +11,7 @@ class Factory(object):
             Precondition: None
             Postcondition: Returns a randomly selected Enemy type"""
 
-        from src.enemy import *   # pylint: disable=unused-variable,wildcard-import
+        from src.enemy import ET, Enemy, Brownie, Drow, Goblin, Thug, Demon  # pylint: disable=unused-variable
         enemyTypes = Enemy.__subclasses__()
         pick = choice(enemyTypes)()
         logging.debug("Creating new enemy of type %s", pick)
