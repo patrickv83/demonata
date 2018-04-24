@@ -8,19 +8,13 @@ class Weapon(Item):
         """@ReturnType Weapon"""
         self.__damage = damage
         """@AttributeType int"""
-        self.__name = name
-        """@AttributeType String"""
-        self.__value = damage
-        """@AttributeType int"""
-        self.__desc = "A weapon to be used in combat. Equip to increase your damage."
-        """@AttributeTupe String"""
-        super(Weapon, self).__init__(name, self.__desc, self.__value)
+        super(Weapon, self).__init__(name, "A weapon to be used in combat. Equip to increase your damage.", damage)
 
     def getDamage(self):
         return self.__damage
 
     def getName(self):
-        return self.__name
+        return self.identity()
 
     def __str__(self):
         """@ReturnType String"""
