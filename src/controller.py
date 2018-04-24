@@ -4,7 +4,8 @@
 import csv
 from sys import exit as exitGame
 import dill
-from urwid import MainLoop
+import logging
+from urwid import MainLoop, ExitMainLoop
 
 
 from src.view.main_view import GameView
@@ -14,7 +15,10 @@ from src.player import Player
 #from src.enemy_room import EnemyRoom
 from src.room import Room
 #from src.artifact_room import ArtifactRoom
-from src.room_factory import roomFactory
+from src.factory import Factory
+
+
+logging.basicConfig(filename='debug.log', level=logging.DEBUG)
 
 class Controller(object):
     """ The controller class - holds the map, instantiates the rooms, tracks the
@@ -56,6 +60,7 @@ class Controller(object):
 
     def start(self):
         """ Start the main game loop """
+        logging.info('Game started')
         self._loop.run()
 
     def stop(self):
@@ -72,10 +77,12 @@ class Controller(object):
                 key = "{0}{1}".format(row.pop(0), row.pop(0))
                 roomTitle = row.pop(0)
                 self.map.update({key: [roomTitle, row]})
+        logging.debug(str(self.map))
 
     def getPlayerLocation(self):
         """ This method returns the player's current location as a tuple
             ReturnType tuple (x, y) """
+        logging.debug('Accessing Controller._playerLocation: {}'.format(self._playerLocation))
         return self._playerLocation
 
     def getRoomKey(self):
@@ -92,7 +99,9 @@ class Controller(object):
     def getDescriptionText(self):
         """ This method gets the description text from the room at the player's current location
             @ReturnType String """
-        return self._visited[self._roomKey].getText()
+        text = self._visited[self._roomKey].getText()
+        return text
+            
 
     def getMapText(self):
         """ This method returns a formatted string representation of the player's current location,
@@ -152,13 +161,23 @@ class Controller(object):
         self._playerLocation = self._player.getLocation()
         self._roomKey = self.getRoomKey()
         try:
+            logging.debug('Returning to previously visited room')
             self._room = self._visited[self._roomKey]
         except KeyError:
-            self._room = roomFactory(self._playerLocation[0],
-                                     self._playerLocation[1],
-                                     self.map[self._roomKey][1])
+            logging.debug('Visiting a new room, generating room')
+            self._visited[self._roomKey] = Factory.roomFactory(self._playerLocation[0],
+                                                               self._playerLocation[1],
+                                                               self.map[self._roomKey][1])
+            self._room = self._visited[self._roomKey]
+            logging.debug('Created new room')
+        finally:
+            logging.debug('Room {}'.format(self._roomKey))
+            logging.debug('Room description: {}'.format(self._room.getText()))
+
     def updateGameView(self):
-        self._gameView.updateDescription(self.getDescriptionText())
+        text = self.getDescriptionText()
+
+        self._gameView.updateDescription(text)
         self._gameView.walker[0].contents[0] = \
            (self._gameView.createDirectionMenu(self.getDirectionOptions()), ('weight', 20, False))
 

@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from src.item_factory import ItemFactory
+from src.factory import Factory
 from src.room import Room
 
 class ArtifactRoom(Room):
@@ -9,5 +9,5 @@ class ArtifactRoom(Room):
         super(ArtifactRoom, self).__init__(x, y, text)
 
     def randomItem(self):
-        return ItemFactory()
+        return Factory.itemFactory()
 

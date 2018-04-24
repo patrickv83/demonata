@@ -16,7 +16,7 @@ class Room(object):
     # Postcondition: Returns the room description to the caller
     # Return Type: String
     def getText(self):
-        return self._text
+        return self._text[0]
 
     # modifyPlayer perfoms any changes to the player character within the room (if any)
     # Precondition: current player object is passed to the function
