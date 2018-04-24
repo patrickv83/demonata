@@ -6,13 +6,15 @@ from src.item import Item
 
 class Weapon(Item):
     """Weapon class for generating weapons."""
-    def __init__(self, damage, name):
+    def __init__(self, damage=5, name=None):
         """Weapon constructor, initializes damage, name, description, and value.
          ReturnType Weapon"""
         self._damage = damage
         """@AttributeType int"""
-        super(Weapon, self).__init__(name, ("A weapon to be used in combat. Equip to increase"
-                                            "your damage."), damage)
+        super(Weapon, self).__init__(name or Weapon._generateWeaponName(), 
+                                     "A weapon to be used in combat. \
+                                     Equip to increase your damage.", 
+                                     damage)
 
     def getDamage(self):
         """@ReturnType int"""
@@ -20,26 +22,28 @@ class Weapon(Item):
 
     def getName(self):
         """ReturnType String"""
-        return self.identity()
+        return self.identify()
 
     def __str__(self):
         """ReturnType String"""
         return "Name: {0}\nDamage: {1}\nValue: {2}".format(self._name, self._damage, self._damage)
 
     @classmethod
-    def getWeapon(cls):
+    def create(cls):
         """Returns a randomly generated weapon with random values for name, damage, and value.
         ReturnType Weapon"""
         weaponDamage = random.randint(1, 5)
         weaponName = Weapon._generateWeaponName()
         return cls(weaponDamage, weaponName)
 
-    def _generateWeaponName(self):
+    @staticmethod
+    def _generateWeaponName():
         """Generates a random weapon name. Private helper function.
         ReturnType String"""
-        return Weapon._getAdjective(self) + " " + Weapon._getNoun(self)
+        return Weapon._getAdjective() + " " + Weapon._getNoun()
 
-    def _getAdjective(self):
+    @staticmethod
+    def _getAdjective():
         """Private helper function for getting a random adjective.
         ReturnType String"""
         adjectives = ["Strong", "Weak", "Heavy", "Light", "Sharp", "Dull", "Blinding", "Cold",
@@ -55,7 +59,8 @@ class Weapon(Item):
         # 66 Total Adjectives
         return random.choice(adjectives)
 
-    def _getNoun(self):
+    @staticmethod
+    def _getNoun():
         """Private helper function for getting a random noun.
         ReturnType String"""
         nouns = ["Sword", "Axe", "Knife", "Dagger", "Diabo", "Pickaxe", "Shiv", "Sickle", "Mattock",
