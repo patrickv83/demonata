@@ -3,9 +3,9 @@
 """ The controller module """
 import csv
 from sys import exit as exitGame
-import dill
 import logging
-from urwid import MainLoop, ExitMainLoop
+import dill
+from urwid import MainLoop
 
 
 from src.view.main_view import GameView
@@ -82,7 +82,7 @@ class Controller(object):
     def getPlayerLocation(self):
         """ This method returns the player's current location as a tuple
             ReturnType tuple (x, y) """
-        logging.debug('Accessing Controller._playerLocation: {}'.format(self._playerLocation))
+        logging.debug('Accessing Controller._playerLocation: %s', self._playerLocation)
         return self._playerLocation
 
     def getRoomKey(self):
@@ -101,7 +101,6 @@ class Controller(object):
             @ReturnType String """
         text = self._visited[self._roomKey].getText()
         return text
-            
 
     def getMapText(self):
         """ This method returns a formatted string representation of the player's current location,
@@ -171,8 +170,8 @@ class Controller(object):
             self._room = self._visited[self._roomKey]
             logging.debug('Created new room')
         finally:
-            logging.debug('Room {}'.format(self._roomKey))
-            logging.debug('Room description: {}'.format(self._room.getText()))
+            logging.debug('Room %s', self._roomKey)
+            logging.debug('Room description: %s', self._room.getText())
 
     def updateGameView(self):
         text = self.getDescriptionText()

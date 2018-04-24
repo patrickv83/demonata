@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from src.item import Item
 import random
+from src.item import Item
 
 class Weapon(Item):
     def __init__(self, name, desc, value, damage):
@@ -19,4 +19,6 @@ class Weapon(Item):
 
     def __str__(self):
         """@ReturnType String"""
-        return "Name: {0}\nDamage: {1}\nValue: {2}".format(self.___name, self.___damage, self.___value)
+        return "Name: {0}\nDamage: {1}\nValue: {2}".format(self._name, 
+                                                           self._damage, 
+                                                           self._value)
