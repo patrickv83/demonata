@@ -4,17 +4,17 @@ from src.item import Item
 import random
 
 class Weapon(Item):
-    def __init__(self, damage, name, desc = " ", value = 0):
+    def __init__(self, damage, name):
         """@ReturnType Weapon"""
         self.__damage = damage
         """@AttributeType int"""
         self.__name = name
         """@AttributeType String"""
-        self.__value = value
+        self.__value = damage
         """@AttributeType int"""
-        self.__desc = desc
+        self.__desc = "A weapon to be used in combat. Equip to increase your damage."
         """@AttributeTupe String"""
-        super(Weapon, self).__init__(name, desc, value)
+        super(Weapon, self).__init__(name, self.__desc, self.__value)
 
     def getDamage(self):
         return self.__damage
@@ -31,12 +31,11 @@ class Weapon(Item):
         """@ReturnType Weapon"""
         weaponDamage = random.randint(1,5)
         weaponName = Weapon.__generateWeaponName()
-        weaponValue = weaponDamage
-        return cls(weaponDamage, weaponName, " ", weaponValue)
+        return cls(weaponDamage, weaponName)
 
     def __generateWeaponName(self):
         """@ReturnType String"""
-        return Weapon.__getAdjective() + Weapon.__getNoun()
+        return Weapon.__getAdjective() + " " + Weapon.__getNoun()
 
     def __getAdjective(self):
         """@ReturnType String"""
