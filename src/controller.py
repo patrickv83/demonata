@@ -41,9 +41,9 @@ class Controller(object):
         self.loadFile('src/data/world.csv')
         self._roomKey = self.getRoomKey()
         self._visited = {'00': Room(0, 0, self.map['00'][1]),
-                         '01': Room(0, 0, self.map['01'][1]),
-                         '02': Room(0, 0, self.map['02'][1]),
-                         '03': Room(0, 0, self.map['03'][1])}
+                         '01': Room(0, 1, self.map['01'][1]),
+                         '02': Room(0, 2, self.map['02'][1]),
+                         '03': Room(0, 3, self.map['03'][1])}
 
         self._gameView = GameView(self.getDescriptionText(), self.getMapText(),
                                   directions=self.getDirectionOptions(),
