@@ -9,12 +9,13 @@ except ImportError:
 
 class InitialView(object):
     """ The InitialView class"""
-    def __init__(self, menu_choices, game_view, game_loop=None):
+    def __init__(self, menu_choices, game_view, game_loop=None, controller=None):
         self._walker = urwid.SimpleFocusListWalker([])
         self.screen = urwid.ListBox(self._walker)
         self._create_menu(menu_choices)
         self._game_loop = game_loop
         self._game_view = game_view
+        self._controller = controller
 
     def set_game_loop(self, loop):
         self._game_loop = loop
@@ -30,7 +31,8 @@ class InitialView(object):
         self._game_loop.widget = self._game_view.screen
 
     def _load_game(self):
-        self._exit()
+        self._game_loop.widget = self._game_view.screen
+        self._controller.loadGame()
 
     def _callback(self, button):
         functions = {'new_game': self._new_game, 'load_game': self._load_game, 'exit': self._exit}

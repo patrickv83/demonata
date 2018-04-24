@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 class Item(object):
-    def __init__(self, name, desc, value):
+    def __init__(self, name=None, desc=None, value=5):
         """@ReturnType Item"""
         self._name = name
         """@AttributeType String"""
@@ -17,11 +17,13 @@ class Item(object):
     def describe(self):
         return self._desc
 
-    def identity(self):
+    def identify(self):
         return self._name
 
+    def create(self):
+        pass
 
     def __str__(self):
         """@ReturnType String"""
-        pass
+        return self._name
 
