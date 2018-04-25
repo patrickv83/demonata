@@ -14,6 +14,7 @@ class GameView(object):
         # Map stuff
         self._mapText = mapText
         self.miniMap = urwid.Pile([])
+        if self._mapText: self.showMap()
 
         directions = kwargs['directions']
         actions = kwargs.pop('actions', None)
@@ -35,10 +36,12 @@ class GameView(object):
         self._top = urwid.Overlay(self.miniMap, self.description, align='right',
                             height=('relative', 10), valign='top',
                             width=('relative', 10), min_width=20, min_height=10)
-        self.screen = urwid.Frame(self.description, header=None, footer=self.menu, focus_part='footer')
+        self.screen = urwid.Frame(self._top, header=None, footer=self.menu, focus_part='footer')
 
     def showMap(self):
-        self.screen.contents['body'] = (self._top, None)
+        #self.screen.contents['body'] = (self._top, None)
+        self.miniMap = urwid.LineBox(urwid.Filler(urwid.Text(self._mapText), valign='middle',
+                                                  height='pack'))
 
     def hideMap(self):
         self.screen.contents['body'] = (self.description, None)

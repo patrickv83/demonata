@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 """ The player module """
 import logging
+from random import randint
 from src.character import Character
 
 class Player(Character):
@@ -58,7 +59,10 @@ class Player(Character):
         """ Fight an enemy
             :param enemy: the enemy to fight"""
         while(not (self.isDead() or enemy.isDead())):
-           enemy.takeDamage(self._weapon.getDamage())
+           try:
+               enemy.takeDamage(self._weapon.getDamage())
+           except AttributeError:
+               enemy.takeDamage(randint(1,5))
            self.takeDamage(enemy.damage)
 
     def interrogate(self, character):

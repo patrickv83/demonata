@@ -21,4 +21,4 @@ class EnemyRoom(Room):
     def killEnemy(self):
         """ Precondition: None
             Postcondition: Enemy is dead and renamed as such """
-        self.enemy.setName("Dead {}".format(self.enemy.getName()))
+        self.enemy.setName("Corpse of {}".format(self.enemy.getName()))

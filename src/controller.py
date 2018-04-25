@@ -113,28 +113,13 @@ class Controller(object):
 
     def getMapText(self):
         """ This method returns a formatted string representation of the player's current location,
-            nearby rooms, and direction arrows toward important locations
-            Something like this (border lines for illustration):
-                                    ______________________________________
-                                   |                                      |
-                                   |                                      |
-                                   | <--- grocery                         |
-                                   |                                      |
-                                   |                                      |
-                                   |                                      |
-                                   |    (street)      X      (street)     |
-                                   |                                      |
-                                   | <--- bar              office         |
-                                   |                         |            |
-                                   |                         |            |
-                                   |                         v            |
-                                   |______________________________________| """
+            nearby rooms, and direction arrows toward important locations """
 
         return """<- grocery
 
                   street  o  street
 
-                  <- bar      """
+                  <- bar               """
 
     def _canMove(self, direction):
         """ Checks if there is a room in <direction> from current room """
