@@ -29,7 +29,7 @@ def test_player_name_change():
 #    assert e.getHP() == (15 - damage)
 def test_player_consumable_heals():
     p.consume(bread)
-    assert p.getHp() == 23+bread.getValue()
+    assert p.getHP() == 23+bread.getValue()
 
 def test_player_dead():
     p.takeDamage(28)
