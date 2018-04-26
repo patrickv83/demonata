@@ -53,7 +53,7 @@ class Cashier(NPC):
     def react(option):
         # Cashier tells player what the assistant purchased
         if option == 1: 
-            reaction = "I thought his purchase was an odd choice. Fifteen pounds of raw meat and some black candles. What an odd combination."
+            reaction = "He bought fifteen pounds of raw meat and some black candles. What an odd combination."
         elif option == 2:
             reaction = "I have to feed my cats. I can't get fired from this job."
         elif option == 3:
