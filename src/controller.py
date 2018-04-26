@@ -10,14 +10,12 @@ import logging
 import dill
 from urwid import MainLoop
 
-
 from src.view.main_view import GameView
 from src.view.initial_view import InitialView
 from src.player import Player
-#from src.tutorial_room import TutorialRoom, Office
-#from src.enemy_room import EnemyRoom
 from src.room import Room
-#from src.artifact_room import ArtifactRoom
+from src.artifact_room import SearchRoom
+from src.special_room import TutorialRoom, Bar, Bookstore, GroceryStore
 from src.factory import Factory
 
 
@@ -42,14 +40,14 @@ class Controller(object):
         self.loadFile('src/data/world.csv')
         self._roomKey = self.getRoomKey()
         # Preseed _visited dict with special rooms
-        self._visited = {'00': Room(0, 0, self.map['00'][1]),        # Office
-                         '01': Room(0, 1, self.map['01'][1]),        # Search
-                         '02': Room(0, 2, self.map['02'][1]),        # Interrogate
-                         '03': Room(0, 3, self.map['03'][1]),        # Combat
-                         '-55': Room(-5, 5, self.map['-55'][1]),     # Bookstore
-                         '-312': Room(-3, 12, self.map['-312'][1]),  # Grocery
-                         '110': Room(1, 10, self.map['110'][1]),     # Bar
-                         '615': Room(6, 15, self.map['615'][1])      # Apartment
+        self._visited = {'00': Room(0, 0, self.map['00'][1]),         # Office
+                         '01': SearchRoom(0, 1, self.map['01'][1]),         # Search
+                         '02': TutorialRoom(0, 2, self.map['02'][1]), # Interrogate
+                         '03': Room(0, 3, self.map['03'][1]),         # Combat
+                         '-55': Bookstore(-5, 5, self.map['-55'][1]),      # Bookstore
+                         '-312': GroceryStore(-3, 12, self.map['-312'][1]),   # Grocery
+                         '110': Bar(1, 10, self.map['110'][1]),      # Bar
+                         '615': Room(6, 15, self.map['615'][1])       # Apartment
                         }
 
         self._gameView = GameView(self.getDescriptionText(), self.getStatText(),
@@ -137,8 +135,14 @@ class Controller(object):
         options = []
         # Try to add item to menu
         try:
-            options.append("Pick up " + self._room.item.identify())
+            if not self._room.item.isHidden():
+                logging.debug("Visible item in room")
+                options.append("Pick up " + self._room.item.identify())
+            else:
+                logging.debug("Hidden item in room")
+                options.append("Search room")
         except AttributeError:
+            logging.debug("No item in room")
             pass
         # Try to add enemy to menu
         try:
@@ -151,6 +155,7 @@ class Controller(object):
             options.append("Interrogate " + self._room.character.getName())
         except AttributeError:
             pass
+
         return options
 
     def getGameOptions(self):
@@ -224,13 +229,23 @@ class Controller(object):
             @ReturnType None"""
         label = button._w.original_widget.text.lower().replace(' ', '_')
         try:
-            logging.debug("Trying to add item to inventory")
-            logging.debug(self._room.item)
-            self._player.addItem(self._room.item)
-            self._room.removeItem()
-            self.updateGameView()
+            if self._room.item.isHidden():
+                logging.debug("Trying to search the room")
+                if self._room.search():
+                    logging.debug("Found item %s", self._room.item.identify())
+                    self._room.item.find()
+                    self._room.updateText(
+                        "You're in the hallway outside your office. \
+This is where you found the {}.".format(self._room.item.identify()))
+                else:
+                    logging.debug("Item still hidden")
+            else:
+                logging.debug("Trying to add item to inventory")
+                logging.debug(self._room.item)
+                self._player.addItem(self._room.item)
+                self._room.removeItem()
         except AttributeError:
-            logging.debug("Failed to add item to inventory")
+            logging.debug("No item in room")
             try:
                 logging.debug("Trying to fight enemy")
                 self._player.fight(self._room.enemy)
@@ -241,11 +256,11 @@ class Controller(object):
                     self._room.killEnemy()
                 else:
                     self.playerDead()
-                self.updateGameView()
             except AttributeError:
-                logging.debug("Failed to fight enemy")
+                logging.debug("No enemy to fight")
                 self._player.interrogate(self._room.character)
         finally:
+            self.updateGameView()
             logging.debug("Action menu item %s pressed", label)
 
     def playerDead(self):

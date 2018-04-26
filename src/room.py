@@ -20,6 +20,12 @@ class Room(object):
             Return Type: String """
         return self._text[0]
 
+    def updateText(self, text):
+        """ updateText updates the text for the room
+            Preconditions: takes text as a parameter (type string)
+            Postconditions: updates description of room"""
+        self._text[0] = text
+
     def modifyPlayer(self, player):
         """ modifyPlayer perfoms any changes to the player character within the room (if any)
             Precondition: current player object is passed to the function
