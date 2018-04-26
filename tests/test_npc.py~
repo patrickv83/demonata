@@ -2,10 +2,10 @@ import unittest
 import pytest
 from src.npc import *
 
-teacher = npc.Tutor()
-bart = npc.Bartender()
-nerd = npc.Bookworm()
-granny = npc.Cashier()
+teacher = Tutor()
+bart = Bartender()
+nerd = Bookworm()
+granny = Cashier()
 
 def test_npc_instantiate():
     assert (teacher.getName() == "Tutor" and teacher.getHP() == 5)

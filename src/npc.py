@@ -4,16 +4,17 @@
 # -*- coding: UTF-8 -*-
 from src.character import Character
 
-class NPC(Character):
-    """ NPC superclass creates an NPC for special rooms """
-    def __init__(self, name, hp):
-        """@ReturnType NPC"""
+# Commented out due to unnecessary subclass
+"""class NPC(Character):
+    # NPC superclass creates an NPC for special rooms
+    def __init__(self):
+        # @ReturnType NPC
         super(NPC, self).__init__(self, name, hp)
     def react(self, option):
-        """ NPC Character reaction """
-        pass
+        # NPC Character reaction
+        pass"""
 
-class Tutor(NPC):
+class Tutor(Character):
     """ Tutor - NPC for the TutorialRoom """
     def __init__(self):
         super(Tutor, self).__init__(self, name="Tutor", hp=5)
@@ -30,7 +31,7 @@ class Tutor(NPC):
 
         return reaction
 
-class Bartender(NPC):
+class Bartender(Character):
     """ Bartender - NPC for the Bar (Special Room) """
     def __init__(self):
         super(Bartender, self).__init__(self, name="Bartender", hp=5)
@@ -48,7 +49,7 @@ class Bartender(NPC):
 
         return reaction
 
-class Bookworm(NPC):
+class Bookworm(Character):
     """ Bookworm - NPC for the Bookstore (Special Room) """
     def __init__(self):
         super(Bookworm, self).__init__(self, name="Bookworm", hp=5)
@@ -66,7 +67,7 @@ class Bookworm(NPC):
 
         return reaction
 
-class Cashier(NPC):
+class Cashier(Character):
     """ Cashier - NPC for Grocery Store (Special Room) """
     def __init__(self):
         super(Cashier, self).__init__(self, name="Cashier", hp=5)
