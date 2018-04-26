@@ -38,7 +38,7 @@ class Factory(object):
             Postcondition: Returns an instance of the randomly selected Room type"""
 
         from src.room import Room
-        from src.artifact_room import ArtifactRoom # pylint: disable=unused-variable
+        from src.artifact_room import ArtifactRoom, SearchRoom # pylint: disable=unused-variable
         from src.enemy_room import EnemyRoom # pylint: disable=unused-variable
 
         roomTypes = Room.__subclasses__()
