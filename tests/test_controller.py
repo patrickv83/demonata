@@ -14,7 +14,7 @@ def test_can_only_move_north_from_origin():
     assert controller.getDirectionOptions() == ["Move North"]
 
 def test_default_action_options():
-    defaultActionOpts = ["Fight pixie", "Pick up whatsit", "Interrogate djinn"]
+    defaultActionOpts = []
     assert controller.getActionOptions() == defaultActionOpts
 
 def test_default_game_options():
@@ -27,3 +27,4 @@ def test_move_player_north():
 
 def test_player_can_move_north_or_south():
     assert controller.getDirectionOptions() == ["Move North", "Move South"]
+
