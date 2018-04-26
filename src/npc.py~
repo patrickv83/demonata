@@ -1,0 +1,28 @@
+""" NPC Module
+    Defines NPC for special rooms """
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+from src.character import Character
+
+class NPC(Character):
+    """ NPC superclass creates an NPC for special rooms """
+    def __init__(self, name, hp):
+        """@ReturnType NPC"""
+        super(NPC, self).__init__(name, hp)
+
+class Bartender(NPC):
+    def __init__(self):
+        super(Bartender, self).__init__(name = "Bartender", hp = 0)
+
+    def react(option):
+        # Bartender's reactions to interrogation
+        if option == 1: 
+            reaction = "I might have seen something."
+        elif option == 2: 
+            reaction = "I think assistant went to the bookstore. Or was it the grocery store?"
+        elif option == 3:
+            reaction = "What teaching assistant?"
+        else:    # Invalid option
+            reaction = "I don't understand, try again."
+
+        return reaction
