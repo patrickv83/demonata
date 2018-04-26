@@ -13,7 +13,7 @@ def test_npc_instantiate():
     assert (nerd.getName() == "Bookworm" and nerd.getHP() == 5)
     assert (granny.getName() == "Cashier" and granny.getHP() == 5)
 
-def test_npc_react()
+def test_npc_react():
     teacherReaction = teacher.react(2)
     assert (teacherReaction == "This option doesn't get you an good info.")
 
