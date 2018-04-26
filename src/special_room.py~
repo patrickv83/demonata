@@ -19,7 +19,6 @@ class TutorialRoom(Room):
 
     def modifyPlayer(self, player):
         # Player interaction - interrogation
-        pass
 
 class Bar(Room):
     # Bar - Special Room

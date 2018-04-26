@@ -12,6 +12,22 @@ class NPC(Character):
     def react(option):
         pass
 
+class Tutor(NPC):
+    def __init__(self):
+        super(Tutor, self).__init__(name = "Tutor", hp = 5)
+
+    def react(option):
+        if option == 1:
+            reaction = "You chose poorly."
+        elif option == 2:
+            reaction = "This option doesn't get you any good info."
+        elif option == 3:
+            reaction = "There you go! I saw the teaching assistant running down the street. Looks like he was headed to the bar."
+        else:    # Invalid option
+            reaction = "I don't understand, try again."
+
+        return reaction
+
 class Bartender(NPC):
     def __init__(self):
         super(Bartender, self).__init__(name = "Bartender", hp = 5)
