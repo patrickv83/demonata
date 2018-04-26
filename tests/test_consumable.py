@@ -44,6 +44,6 @@ def test_create():
     c = Consumable.create()
     assert 1 <= c.getUses() <= 3
     assert 1 <= c.appraise() <= 10
-    assert c.identity() != None
+    assert c.identify() != None
     assert c.describe() == "A consumable item. Use this item to restore heal. Consumables have \
                              a limited number of uses."
