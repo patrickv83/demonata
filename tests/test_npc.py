@@ -15,7 +15,7 @@ def test_npc_instantiate():
 
 def test_npc_react():
     teacherReaction = teacher.react(2)
-    assert teacherReaction == "This option doesn't get you an good info."
+    assert teacherReaction == "This option doesn't get you any good info."
 
     bartReaction = bart.react(1)
     assert bartReaction == "I might have seen something."
