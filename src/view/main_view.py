@@ -6,16 +6,13 @@ from src.view.button import ActionButton
 
 class GameView(object):
     """ The GameView class"""
-    def __init__(self, descriptionText, mapText, **kwargs):
-        # Room description stuff
+    def __init__(self, descriptionText, statText, **kwargs):
+        # Room description widget
         self.description = urwid.Filler(urwid.Text(descriptionText),
                                         valign='middle', height='pack')
 
-        # Map stuff
-        self._mapText = mapText
-        self.miniMap = urwid.Pile([])
-        if self._mapText: 
-            self.showMap()
+        # Stat display widget
+        self._statText = urwid.Text(statText)
 
         # kwargs
         directions = kwargs['directions']
@@ -33,26 +30,8 @@ class GameView(object):
         self.walker.append(cols)
         self.menu = urwid.BoxAdapter(urwid.ListBox(self.walker), 6)
 
-
-
-        self._top = urwid.Overlay(self.miniMap, self.description, align='right',
-                                  height=('relative', 10), valign='top',
-                                  width=('relative', 10), min_width=20, min_height=10)
-        self.screen = urwid.Frame(self._top, header=None, footer=self.menu, focus_part='footer')
-
-    def showMap(self):
-        #self.screen.contents['body'] = (self._top, None)
-        self.miniMap = urwid.LineBox(urwid.Filler(urwid.Text(self._mapText), valign='middle',
-                                                  height='pack'))
-
-    def hideMap(self):
-        self.screen.contents['body'] = (self.description, None)
-
-    def toggleMap(self):
-        if isinstance(self.miniMap, urwid.graphics.LineBox):
-            self.hideMap()
-        else:
-            self.showMap()
+        self.screen = urwid.Frame(self.description, header=self._statText, 
+                                  footer=self.menu, focus_part='footer')
 
     def setMenuFocus(self, column):
         self.walker[0].set_focus_column(column)
@@ -74,7 +53,5 @@ class GameView(object):
     def updateActionMenu(self, options):
         self.walker[0].contents[1] = (self.createActionMenu(options), ('weight', 20, False))
 
-    def updateMap(self, text):
-        self._mapText = text
-        if isinstance(self.miniMap, urwid.graphics.LineBox):
-            self.miniMap.original_widget.original_widget.set_text(text)
+    def updateStats(self, newText):
+        self._statText.set_text(newText)

@@ -4,6 +4,7 @@
 import logging
 from random import randint
 from src.character import Character
+from src.weapon import Weapon
 
 class Player(Character):
     """ Player class, tracks location, HP, equipment/inventory, gold, etc """
@@ -18,7 +19,7 @@ class Player(Character):
         """@AttributeType Item*"""
         self._gold = gold
         """@AttributeType Int"""
-        self._weapon = weapon
+        self._weapon = weapon or Weapon.create()
         self._coords = coords
         super(Player, self).__init__(name, hp)
 
@@ -64,7 +65,6 @@ class Player(Character):
             except AttributeError:
                 enemy.takeDamage(randint(1, 5))
             self.takeDamage(enemy.damage)
-
 
     def interrogate(self, character):
         """ Interrogate an NPC
