@@ -1,4 +1,6 @@
 import pytest
+from random import choice
+
 from src.controller import Controller
 from src.player import Player
 
@@ -22,9 +24,14 @@ def test_default_game_options():
     assert controller.getGameOptions() == defaultGameOpts
 
 def test_move_player_north():
-    controller.movePlayer(Controller.NORTH)
+    controller.movePlayer("NORTH")
     assert controller.getPlayerLocation() == (0, 1)
 
 def test_player_can_move_north_or_south():
     assert controller.getDirectionOptions() == ["Move North", "Move South"]
+
+def test_description_correct_after_20_moves():
+    for _ in range(20):
+        controller.movePlayer(choice(Controller.DIRECTIONS.keys()))
+    assert controller.getDescriptionText() == controller.map[controller._roomKey][1][0]
 

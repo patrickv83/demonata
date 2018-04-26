@@ -26,10 +26,7 @@ logging.basicConfig(filename='debug.log', level=logging.DEBUG)
 class Controller(object):
     """ The controller class - holds the map, instantiates the rooms, tracks the
         player and enemies """
-    EAST = (1, 0)
-    WEST = (-1, 0)
-    SOUTH = (0, -1)
-    NORTH = (0, 1)
+    DIRECTIONS = {'EAST': (1, 0), 'WEST': (-1, 0), 'SOUTH': (0, -1), 'NORTH': (0, 1)}
 
     def __init__(self, startCoords=(0, 0)):
         """ Controller constructor
@@ -123,7 +120,7 @@ class Controller(object):
 
     def _canMove(self, direction):
         """ Checks if there is a room in <direction> from current room """
-        dirX, dirY = eval('Controller.{}'.format(direction))
+        dirX, dirY = Controller.DIRECTIONS[direction]
         roomKey = '{}{}'.format(self._playerLocation[0] + dirX,
                                 self._playerLocation[1] + dirY)
         return roomKey in self.map
@@ -165,7 +162,9 @@ class Controller(object):
     def movePlayer(self, direction):
         """ Updates the player's current location and instantiates a room if necessary
             ReturnType None """
-        self._player.move(direction)
+        if not self._canMove(direction):
+            return
+        self._player.move(Controller.DIRECTIONS[direction])
         self._playerLocation = self._player.getLocation()
         self._roomKey = self.getRoomKey()
         try:
@@ -193,10 +192,10 @@ class Controller(object):
 
     def moveCallback(self, button):
         """ Updates the gameView object every time the player moves """
-        functions = {'move_north': (self.movePlayer, Controller.NORTH),
-                     'move_south': (self.movePlayer, Controller.SOUTH),
-                     'move_east': (self.movePlayer, Controller.EAST),
-                     'move_west': (self.movePlayer, Controller.WEST)}
+        functions = {'move_north': (self.movePlayer, "NORTH"),
+                     'move_south': (self.movePlayer, "SOUTH"),
+                     'move_east': (self.movePlayer, "EAST"),
+                     'move_west': (self.movePlayer, "WEST")}
         label = button._w.original_widget.text.lower().replace(' ', '_')
         try:
             functions[label][0](functions[label][1])
