@@ -27,7 +27,7 @@ class Factory(object):
         #from consumable import Consumable # pylint: disable=unused-import
         from src.weapon import Weapon # pylint: disable=unused-variable
         itemTypes = Item.__subclasses__()
-        pick = itemTypes[choice(itemTypes)]()
+        pick = choice(itemTypes)()
         logging.debug("Creating new item of type %s", pick)
         return pick
 
