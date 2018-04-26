@@ -1,23 +1,20 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
-from src.enemy import Enemy
 from src.room import Room
+from src.factory import Factory
 
 class EnemyRoom(Room):
-    # EnemyRoom constructor
-    def __init__(self, x, y, enemy):
-        self.enemy = enemy
-        super(EnemyRoom, self).__init__(self, x, y)
+    """ EnemyRoom class """
+    def __init__(self, x, y, text, enemy=None):
+        self.enemy = enemy or self.randomEnemy()
+        super(EnemyRoom, self).__init__(x, y, text)
 
-    # introText prints room description
-    def introText(self):
-        return
-
-    # modifyPlayer
     def modifyPlayer(self, player):
-        # Update player with results of enemy interaction
+        """ Update player with results of enemy interaction """
         return player
 
-    # Postcondition: returns room coordinates
-    def getCoordinates(self):
-        return(self.x, self.y)
+
+    def randomEnemy(self):
+        """ Precondition: None
+            Postcondition: returns random Enemy """
+        return Factory.enemyFactory()

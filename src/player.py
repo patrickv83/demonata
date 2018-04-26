@@ -22,9 +22,9 @@ class Player(Character):
         self._coords = coords
         super(Player, self).__init__(name, hp)
 
-    def printInventory(self):
-        """ Prints player's inventory """
-        print self._inventory
+    def getInventory(self):
+        """ Returns player's inventory """
+        return self._inventory
 
     def addItem(self, item):
         """ Add Item <item> to player's inventory
@@ -54,7 +54,7 @@ class Player(Character):
             @ReturnType int,int tuple """
         return self._coords
 
-    def move(self, direction=()):
+    def move(self, direction):
         """ Update player's current location
             @ReturnType void"""
         self._coords = (self._coords[0] + direction[0],
