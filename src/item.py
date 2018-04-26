@@ -20,6 +20,8 @@ class Item(object):
     def identity(self):
         return self._name
 
+    def setName(self, name):
+        self._name = name
 
     def __str__(self):
         """@ReturnType String"""
