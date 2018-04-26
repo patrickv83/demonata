@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 """Weapon class for generating weapons."""
+
 import random
 from src.item import Item
 
@@ -72,3 +73,9 @@ class Weapon(Item):
                  "Crowbar"]
         # 45 Total Nouns
         return random.choice(nouns)
+
+    def __str__(self):
+        """@ReturnType String"""
+        return "Name: {0}\nDamage: {1}\nValue: {2}".format(self._name, 
+                                                           self._damage, 
+                                                           self._value)

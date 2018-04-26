@@ -1,29 +1,32 @@
+""" room module """
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 class Room(object):
-    
-    # Room Constructor
-    # Precondition: Takes an x and y coordinate (type int) for the location of the room within the world
-    # Postcondition: Returns a room
-    def __init__(self, x, y):
-        # x- and y-coordinates 
+    """ Room Constructor
+        Precondition: Takes an x and y coordinate (type int) for the location within the world
+        Postcondition: Returns a room """
+
+    def __init__(self, x, y, text):
+        # x- and y-coordinates
         self.x = x
         self.y = y
+        self._text = text
 
-    # generateDescription prints the room description
-    # Preconditions: None
-    # Postcondition: Prints the room description to the screen
-    # Return Type: Void
-    def introText(self):
-        return
+    
+    def getText(self):
+        """ getText prints the room description
+            Preconditions: None
+            Postcondition: Returns the room description to the caller
+            Return Type: String """
+        return self._text[0]
 
-    # modifyPlayer perfoms any changes to the player character within the room (if any)
-    # Precondition: current player object is passed to the function
-    # Postcondition: Player object is modified appropriately
-    # Return Type: Void
     def modifyPlayer(self, player):
+        """ modifyPlayer perfoms any changes to the player character within the room (if any)
+            Precondition: current player object is passed to the function
+            Postcondition: Player object is modified appropriately
+            Return Type: Void """
         pass
 
-    # Postcondition: Returns the room coordinates in a tuple
     def getCoords(self):
+        """ Postcondition: Returns the room coordinates in a tuple """
         return (self.x, self.y)
