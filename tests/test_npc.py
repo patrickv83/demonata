@@ -21,7 +21,7 @@ def test_npc_react():
     assert bartReaction == "I might have seen something."
 
     nerdReaction = nerd.react(3)
-    assert nerdReaction == "Ok, I'm really not supposed to do this but the teaching assistant came in and purchased a copy of 'Advanced Demon Summoning.' Do you think he is really going to do it, summon a demon?"
+    assert nerdReaction == "Ok, I'm really not supposed to do this, but the teaching assistant came in and purchased a copy of 'Advanced Demon Summoning.' Do you think he is really going to do it, summon a demon?"
 
     grannyReaction = granny.react(5)
     assert grannyReaction == "I don't understand, try again."
