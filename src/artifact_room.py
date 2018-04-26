@@ -18,3 +18,6 @@ class ArtifactRoom(Room):
 
     def removeItem(self):
         self.item = None
+
+    def getItem(self):
+        return self.item
