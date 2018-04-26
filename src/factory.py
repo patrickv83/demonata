@@ -24,7 +24,7 @@ class Factory(object):
             Postcondition: Returns an instance of the randomly selected Item type """
 
         from src.item import Item
-        #from consumable import Consumable # pylint: disable=unused-import
+        from src.consumable import Consumable # pylint: disable=unused-import
         from src.weapon import Weapon # pylint: disable=unused-variable
         itemTypes = Item.__subclasses__()
         pick = choice(itemTypes).create()

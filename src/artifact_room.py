@@ -14,7 +14,7 @@ class ArtifactRoom(Room):
         """ method returns a random item, using the itemFactory method
             Precondition: None
             Postcondition: returns random Item """
-        return Factory.itemFactory()
+        return Factory.itemFactory().create()
 
     def removeItem(self):
         self.item = None

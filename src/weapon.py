@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 """Weapon class for generating weapons."""
-
 import random
 from src.item import Item
 
@@ -56,8 +55,9 @@ class Weapon(Item):
                       "Superior", "Useless", "Usefull", "Valuable", "Invaluable", "Used",
                       "Worthless", "Worthy", "Dreadful", "Enchanted", "Murderous", "Venomous",
                       "Reliable", "Poisonous", "Ultimate", "Unique", "Savage", "Dreadful",
-                      "Powerful", "Broken", "Heavily Used", "Gently Used", "Pristine"]
-        # 66 Total Adjectives
+                      "Powerful", "Broken", "Heavily Used", "Gently Used", "Pristine", "Golden",
+                      "Silver", "Bronze", "Iron"]
+        # 70 Total Adjectives
         return random.choice(adjectives)
 
     @staticmethod
@@ -73,4 +73,3 @@ class Weapon(Item):
                  "Crowbar"]
         # 45 Total Nouns
         return random.choice(nouns)
-
