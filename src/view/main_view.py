@@ -14,8 +14,10 @@ class GameView(object):
         # Map stuff
         self._mapText = mapText
         self.miniMap = urwid.Pile([])
-        if self._mapText: self.showMap()
+        if self._mapText: 
+            self.showMap()
 
+        # kwargs
         directions = kwargs['directions']
         actions = kwargs.pop('actions', None)
         gameOpts = kwargs.pop('gameOpts', None)
@@ -34,8 +36,8 @@ class GameView(object):
 
 
         self._top = urwid.Overlay(self.miniMap, self.description, align='right',
-                            height=('relative', 10), valign='top',
-                            width=('relative', 10), min_width=20, min_height=10)
+                                  height=('relative', 10), valign='top',
+                                  width=('relative', 10), min_width=20, min_height=10)
         self.screen = urwid.Frame(self._top, header=None, footer=self.menu, focus_part='footer')
 
     def showMap(self):

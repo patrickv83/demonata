@@ -2,10 +2,7 @@
 resuming a saved game """
 import urwid
 
-try:
-    from view.button import ActionButton
-except ImportError:
-    from button import ActionButton
+from src.view.button import ActionButton
 
 class InitialView(object):
     """ The InitialView class"""
@@ -40,5 +37,3 @@ class InitialView(object):
         if label in functions:
             functions[label]()
 
-if __name__ == '__main__':
-    VIEW = InitialView(['New game', 'Load game', 'Exit'])

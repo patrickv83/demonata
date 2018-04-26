@@ -58,12 +58,12 @@ class Player(Character):
     def fight(self, enemy):
         """ Fight an enemy
             :param enemy: the enemy to fight"""
-        while(not (self.isDead() or enemy.isDead())):
-           try:
-               enemy.takeDamage(self._weapon.getDamage())
-           except AttributeError:
-               enemy.takeDamage(randint(1,5))
-           self.takeDamage(enemy.damage)
+        while not (self.isDead() or enemy.isDead()):
+            try:
+                enemy.takeDamage(self._weapon.getDamage())
+            except AttributeError:
+                enemy.takeDamage(randint(1, 5))
+            self.takeDamage(enemy.damage)
 
 
     def interrogate(self, character):

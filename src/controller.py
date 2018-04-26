@@ -52,7 +52,7 @@ class Controller(object):
                          '-312': Room(-3, 12, self.map['-312'][1]),  # Grocery
                          '110': Room(1, 10, self.map['110'][1]),     # Bar
                          '615': Room(6, 15, self.map['615'][1])      # Apartment
-}
+                        }
 
         self._gameView = GameView(self.getDescriptionText(), self.getMapText(),
                                   directions=self.getDirectionOptions(),
@@ -183,6 +183,7 @@ class Controller(object):
             logging.debug('Room description: %s', self._room.getText())
 
     def updateGameView(self):
+        """ Updates the GameView screen after player action """
         text = self.getDescriptionText()
 
         self._gameView.updateDescription(text)
@@ -217,7 +218,7 @@ class Controller(object):
 
     def actionCallback(self, button):
         """ Updates the gameView object whenever the player performs an action from
-            the action menu 
+            the action menu
             Precondition: Action menu item is selected by player. Action menu items should be in
                           the format 'pick up <item>', 'fight <enemy>', 'interrogate <npc>'
             Postcondition: The appropriate action method is run
@@ -248,7 +249,7 @@ class Controller(object):
         finally:
             logging.debug("Action menu item %s pressed", label)
 
-    def playerDead():
+    def playerDead(self):
         """ Handle the player dying """
         pass
 
@@ -274,7 +275,7 @@ class Controller(object):
         """ Unpickles the controller (self) and player (self._player) to load the
             saved game state
             Precondition: Save game file in saves/<player name>_<save index>
-            Postcondition: Loads game state 
+            Postcondition: Loads game state
             @ReturnType None """
         try:
             with open(self._saveDir+'/patrick_001') as f:
