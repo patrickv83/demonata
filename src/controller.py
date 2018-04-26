@@ -240,13 +240,17 @@ class Controller(object):
                 if self._room.enemy.isDead():
                     self._room.killEnemy()
                 else:
-                    self._player.die()
+                    self.playerDead()
                 self.updateGameView()
             except AttributeError:
                 logging.debug("Failed to fight enemy")
                 self._player.interrogate(self._room.character)
         finally:
             logging.debug("Action menu item %s pressed", label)
+
+    def playerDead():
+        """ Handle the player dying """
+        pass
 
     def saveGame(self):
         """ Pickles the controller state and player to save the current game state
