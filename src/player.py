@@ -65,6 +65,7 @@ class Player(Character):
                enemy.takeDamage(randint(1,5))
            self.takeDamage(enemy.damage)
 
+
     def interrogate(self, character):
         """ Interrogate an NPC
             :param character: the non-player character to interrogate """

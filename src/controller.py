@@ -89,30 +89,30 @@ class Controller(object):
         logging.debug(str(self.map))
 
     def getPlayerLocation(self):
-        """ This method returns the player's current location as a tuple
+        """ Returns the player's current location as a tuple
             ReturnType tuple (x, y) """
         logging.debug('Accessing Controller._playerLocation: %s', self._playerLocation)
         return self._playerLocation
 
     def getRoomKey(self):
-        """ This method generates a key for the map based on the player's current location
+        """ Generates a key for the map based on the player's current location
             @ReturnType String """
         return '{}{}'.format(self._playerLocation[0], self._playerLocation[1])
 
     def getRooms(self):
-        """ This method returns the loaded map. It is slated for removal very soon and should
+        """ Returns the loaded map. It is slated for removal very soon and should
             not be used
             @ReturnType dict """
         return self.map
 
     def getDescriptionText(self):
-        """ This method gets the description text from the room at the player's current location
+        """ Gets the description text from the room at the player's current location
             @ReturnType String """
         text = self._visited[self._roomKey].getText()
         return text
 
     def getMapText(self):
-        """ This method returns a formatted string representation of the player's current location,
+        """ Returns a formatted string representation of the player's current location,
             nearby rooms, and direction arrows toward important locations """
 
         return """<- grocery
@@ -129,13 +129,13 @@ class Controller(object):
         return roomKey in self.map
 
     def getDirectionOptions(self):
-        """ This method builds the list of directions the player can move
+        """ Builds the list of directions the player can move
             ReturnType list of Strings """
         return ["Move {}".format(x).title() for x in ["NORTH", "WEST", "EAST", "SOUTH"]
                 if self._canMove(x)]
 
     def getActionOptions(self):
-        """ This method builds and returns the list of actions the player can take in the room
+        """ Builds and returns the list of actions the player can take in the room
             ReturnType list of Strings """
         options = []
         # Try to add item to menu
@@ -145,7 +145,8 @@ class Controller(object):
             pass
         # Try to add enemy to menu
         try:
-            options.append("Fight " + self._room.enemy.getName())
+            if not self._room.enemy.isDead():
+                options.append("Fight " + self._room.enemy.getName())
         except AttributeError:
             pass
         # Try to add NPC to menu
@@ -156,13 +157,13 @@ class Controller(object):
         return options
 
     def getGameOptions(self):
-        """ This method returns the metagame options (e.g. Save, Load, Quit)
+        """ Returns the metagame options (e.g. Save, Load, Quit)
             ReturnType list of strings """
         options = ["Save", "Load", "Exit game"]
         return options
 
     def movePlayer(self, direction):
-        """ This method updates the player's current location and instantiates a room if necessary
+        """ Updates the player's current location and instantiates a room if necessary
             ReturnType None """
         self._player.move(direction)
         self._playerLocation = self._player.getLocation()
@@ -203,7 +204,7 @@ class Controller(object):
         self.updateGameView()
 
     def optionCallback(self, button):
-        """ This method updates the gameView object whenever the player uses the
+        """ Updates the gameView object whenever the player uses the
             game options menu (save/load/quit/etc) """
         functions = {'save': self.saveGame,
                      'load': self.loadGame,
@@ -215,7 +216,7 @@ class Controller(object):
             pass
 
     def actionCallback(self, button):
-        """ This method updates the gameView object whenever the player performs an action from
+        """ Updates the gameView object whenever the player performs an action from
             the action menu 
             Precondition: Action menu item is selected by player. Action menu items should be in
                           the format 'pick up <item>', 'fight <enemy>', 'interrogate <npc>'
@@ -233,7 +234,14 @@ class Controller(object):
             try:
                 logging.debug("Trying to fight enemy")
                 self._player.fight(self._room.enemy)
-                self._room.killEnemy()
+                logging.debug("Fought enemy - results: Player HP: %s\nEnemy HP: %s",
+                              self._player.getHP(),
+                              self._room.enemy.getHP())
+                if self._room.enemy.isDead():
+                    self._room.killEnemy()
+                else:
+                    self._player.die()
+                self.updateGameView()
             except AttributeError:
                 logging.debug("Failed to fight enemy")
                 self._player.interrogate(self._room.character)
@@ -241,7 +249,7 @@ class Controller(object):
             logging.debug("Action menu item %s pressed", label)
 
     def saveGame(self):
-        """ This method pickles the controller state and player to save the current game state
+        """ Pickles the controller state and player to save the current game state
             Precondition: None
             Postcondition: Saves game state in saves/<player name>_<save index>
             @ReturnType None """
@@ -259,7 +267,7 @@ class Controller(object):
             dill.dump(self._roomKey, f)
 
     def loadGame(self):
-        """ This method unpickles the controller (self) and player (self._player) to load the
+        """ Unpickles the controller (self) and player (self._player) to load the
             saved game state
             Precondition: Save game file in saves/<player name>_<save index>
             Postcondition: Loads game state 
