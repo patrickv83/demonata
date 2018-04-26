@@ -9,7 +9,7 @@ class NPC(Character):
     def __init__(self, name, hp):
         """@ReturnType NPC"""
         super(NPC, self).__init__(self, name, hp)
-    def react(option):
+    def react(self, option):
         """ NPC Character reaction """
         pass
 
@@ -18,7 +18,7 @@ class Tutor(NPC):
     def __init__(self):
         super(Tutor, self).__init__(self, name="Tutor", hp=5)
 
-    def react(option):
+    def react(self, option):
         if option == 1:
             reaction = "You chose poorly."
         elif option == 2:
@@ -35,7 +35,7 @@ class Bartender(NPC):
     def __init__(self):
         super(Bartender, self).__init__(self, name="Bartender", hp=5)
 
-    def react(option):
+    def react(self, option):
         # Bartender's reactions to interrogation
         if option == 1:
             reaction = "I might have seen something."
@@ -53,7 +53,7 @@ class Bookworm(NPC):
     def __init__(self):
         super(Bookworm, self).__init__(self, name="Bookworm", hp=5)
 
-    def react(option):
+    def react(self, option):
         # Bookworm tells player what the assistant purchased
         if option == 1:
             reaction = "I can't tell you that, I could get fired."
@@ -71,7 +71,7 @@ class Cashier(NPC):
     def __init__(self):
         super(Cashier, self).__init__(self, name="Cashier", hp=5)
 
-    def react(option):
+    def react(self, option):
         # Cashier tells player what the assistant purchased
         if option == 1:
             reaction = "He bought fifteen pounds of raw meat and some black candles. What an odd combination."
