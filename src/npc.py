@@ -13,18 +13,18 @@ class NPC(Character):
         # NPC Character reaction
         pass
 
-class Tutor(NPC):
-    """ Tutor - NPC for the TutorialRoom """
+class Landlord(NPC):
+    """ Landlord - NPC for the TutorialRoom """
     def __init__(self):
-        super(Tutor, self).__init__(name="Tutor", hp=5)
+        super(Landlord, self).__init__(name="Fyodor", hp=5)
 
     def react(self, option):
         if option == 1:
-            reaction = "You chose poorly."
+            reaction = "You've got 3 days to get me your back rent or you're outta here, buddy"
         elif option == 2:
-            reaction = "This option doesn't get you any good info."
+            reaction = "His mouth says, 'Uh huh - yep - wow, that's so interesting' but his glazed eyes say 'You are boring me to tears, please go away.'"
         elif option == 3:
-            reaction = "There you go! I saw the teaching assistant running down the street. Looks like he was headed to the bar."
+            reaction = "No one's ever taken an interest in my story before... I guess you're not so bad after all. I'll tell you what - I know things are tough right now. Get me the money when you can."
         else:    # Invalid option
             reaction = "I don't understand, try again."
 

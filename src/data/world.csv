@@ -3,7 +3,7 @@
 You answer the phone. The caller is a well-known professor of demonology at the city college. Cool, you've seen her on TV. Apparently her graduate assistant has been missing for several days, and all of her demonic contacts are 'suspiciously tight-lipped' on the subject. She offers to pay your weekly rate of 1000 gold to have you track down her wayward student. Jackpot! The last place she saw the guy was at a bar just a couple blocks away from your office. That's probably a good place to start."
 0|1|Search tutorial|You're in the hallway outside your office. When you walk over a particular spot on the carpet, you feel a bump. Is there something under there?
 0|2|Interrogate tutorial|Still in the hallway. How have you never noticed before how long this hallway is? It feels like you've been in here forever, and you can see that you've only covered about two-thirds of the distance. Uh oh, there's your landlord Fyodor! He threatened to cancel your lease if you're late on your rent again... And oh no, he saw you! Maybe you can distract him - ask him some questions, see if you can get him talking.
-0|3|Combat tutorial|(Combat tutorial)
+0|3|Combat tutorial|There's the door to the street! Small problem though. There's an eight-foot tall wyvern blocking the door and he looks grumpy. He looks your way and snarls. I guess it's time for a fight!
 0|4|East Maple Street|A line of storefronts stretches along this street. Years ago they may have sold ladies' hats, hardware, or any number of mundane objects, but recently they've mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases. 
 -7|4|West Maple & Alley A|The intersection of Maple Street and a street the locals call 'Alley A' - FIXFIXFIX
 -6|4|West Maple Street|A line of storefronts stretches along this street. Years ago they may have sold ladies' hats, hardware, or any number of mundane objects, but recently they've mostly turned over to alchemical supplies, crystals, enchanted amulets, and other magical accessories. A few groups of young women weave in and out of the shops, giggling conspiratorially among themselves over their latest purchases.
@@ -78,3 +78,4 @@ You answer the phone. The caller is a well-known professor of demonology at the 
 -3|12|Grocery|Grocery
 1|10|Bar|Bar
 6|15|Apartment|Apartment
+99|99|Afterlife|You find yourself drifting through a cavernous room filled with mist. What happened? Where are you? Wasn't there something important you needed to do? As you drift around the room your cares fall away and you feel... at peace. Death isn't so bad after all.

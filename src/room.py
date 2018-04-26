@@ -11,6 +11,7 @@ class Room(object):
         self.x = x
         self.y = y
         self._text = text
+        self._specialText = None
 
     
     def getText(self):
@@ -20,11 +21,11 @@ class Room(object):
             Return Type: String """
         return self._text[0]
 
-    def updateText(self, text):
+    def setSpecialText(self, text):
         """ updateText updates the text for the room
             Preconditions: takes text as a parameter (type string)
             Postconditions: updates description of room"""
-        self._text[0] = text
+        self._specialText = text
 
     def modifyPlayer(self, player):
         """ modifyPlayer perfoms any changes to the player character within the room (if any)
@@ -36,3 +37,5 @@ class Room(object):
     def getCoords(self):
         """ Postcondition: Returns the room coordinates in a tuple """
         return (self.x, self.y)
+
+

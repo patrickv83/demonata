@@ -15,7 +15,9 @@ from src.view.initial_view import InitialView
 from src.player import Player
 from src.room import Room
 from src.artifact_room import SearchRoom
-from src.special_room import TutorialRoom, Bar, Bookstore, GroceryStore
+from src.enemy_room import EnemyRoom
+from src.enemy import Enemy, ET
+from src.special_room import Bar, Bookstore, GroceryStore
 from src.factory import Factory
 
 
@@ -36,18 +38,21 @@ class Controller(object):
         self._playerLocation = startCoords
         self._room = None
         self.map = None
-        self._currentRoom = None
         self.loadFile('src/data/world.csv')
         self._roomKey = self.getRoomKey()
         # Preseed _visited dict with special rooms
-        self._visited = {'00': Room(0, 0, self.map['00'][1]),         # Office
-                         '01': SearchRoom(0, 1, self.map['01'][1]),         # Search
-                         '02': TutorialRoom(0, 2, self.map['02'][1]), # Interrogate
-                         '03': Room(0, 3, self.map['03'][1]),         # Combat
-                         '-55': Bookstore(-5, 5, self.map['-55'][1]),      # Bookstore
+        self._visited = {'00': Room(0, 0, self.map['00'][1]),                # Office
+                         '01': SearchRoom(0, 1, self.map['01'][1]),          # Search
+                         '02': Room(0, 2, self.map['02'][1]),        # Interrogate
+                         '03': EnemyRoom(0, 3, self.map['03'][1],Enemy("Grumpy wyvern",
+                                                                       5,
+                                                                       1,
+                                                                       ET.DRAGON)),         # Combat
+                         '-55': Bookstore(-5, 5, self.map['-55'][1]),         # Bookstore
                          '-312': GroceryStore(-3, 12, self.map['-312'][1]),   # Grocery
-                         '110': Bar(1, 10, self.map['110'][1]),      # Bar
-                         '615': Room(6, 15, self.map['615'][1])       # Apartment
+                         '110': Bar(1, 10, self.map['110'][1]),               # Bar
+                         '615': Room(6, 15, self.map['615'][1]),               # Apartment
+                         '9999': Room(99, 99, self.map['9999'][1])
                         }
 
         self._gameView = GameView(self.getDescriptionText(), self.getStatText(),
@@ -82,7 +87,6 @@ class Controller(object):
                 key = "{0}{1}".format(row.pop(0), row.pop(0))
                 roomTitle = row.pop(0)
                 self.map.update({key: [roomTitle, row]})
-        logging.debug(str(self.map))
 
     def getPlayerLocation(self):
         """ Returns the player's current location as a tuple
@@ -234,9 +238,7 @@ class Controller(object):
                 if self._room.search():
                     logging.debug("Found item %s", self._room.item.identify())
                     self._room.item.find()
-                    self._room.updateText(
-                        "You're in the hallway outside your office. \
-This is where you found the {}.".format(self._room.item.identify()))
+                    self._room.setSpecialText("This is where you found the {}.".format(self._room.item.identify()))
                 else:
                     logging.debug("Item still hidden")
             else:
@@ -258,14 +260,24 @@ This is where you found the {}.".format(self._room.item.identify()))
                     self.playerDead()
             except AttributeError:
                 logging.debug("No enemy to fight")
-                self._player.interrogate(self._room.character)
+                try:
+                    self._player.interrogate(self._room.character)
+                except AttributeError:
+                    pass
         finally:
             self.updateGameView()
             logging.debug("Action menu item %s pressed", label)
 
     def playerDead(self):
         """ Handle the player dying """
-        pass
+        self._player._coords = (99, 99)
+        self._playerLocation = (99, 99)
+        self._roomKey = '9999'
+        self._room = Room(99, 99, self.map[self._roomKey][1])
+        self._visited[self._roomKey] = self._room
+        self.updateGameView()
+        self._gameView.setMenuFocus(0)
+        self._gameView.screen.draw_screen()
 
     def saveGame(self):
         """ Pickles the controller state and player to save the current game state
@@ -280,7 +292,6 @@ This is where you found the {}.".format(self._room.item.identify()))
         with open(self._saveDir+'/patrick_001', 'w+') as f:
             dill.dump(self._player, f)
             dill.dump(self._playerLocation, f)
-            dill.dump(self._currentRoom, f)
             dill.dump(self.map, f)
             dill.dump(self._visited, f)
             dill.dump(self._roomKey, f)
@@ -295,7 +306,6 @@ This is where you found the {}.".format(self._room.item.identify()))
             with open(self._saveDir+'/patrick_001') as f:
                 self._player = dill.load(f)
                 self._playerLocation = dill.load(f)
-                self._currentRoom = dill.load(f)
                 self.map = dill.load(f)
                 self._visited = dill.load(f)
                 self._roomKey = dill.load(f)

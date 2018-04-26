@@ -16,6 +16,7 @@ class ET(Enum):
     GOBLIN = 3
     THUG = 4
     DEMON = 5
+    DRAGON = 6
 
 class Enemy(Character):
     """ Enemy superclass creates an enemy """
