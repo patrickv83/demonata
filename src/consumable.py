@@ -76,7 +76,7 @@ class Consumable(Item):
         """Private helper funcrtion to get a random noun for consumables
         @ReturnType: String"""
         nouns = ["Nuts", "Peanuts", "Almonds", "Walnuts", "Cashews", "Brazil Nuts", "Apple",
-                 "Honey Crisp Apple", "Apricot", "Bannana", "Grapes", "Peach", "Plums", "Beet",
+                 "Honey Crisp Apple", "Apricot", "Banana", "Grapes", "Peach", "Plums", "Beet",
                  "Carrot", "Celery", "Squash", "Zucchini", "Avocado", "Corn Cob", "Onion", "Potato",
                  "Sweet Potato", "Yam"]
         return random.choice(nouns)

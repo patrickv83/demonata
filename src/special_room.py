@@ -10,12 +10,9 @@ from src.npc import *
 
 class TutorialRoom(Room):
     """ Tutorial room to teach investigation """
-    def __init__(self, x, y):
+    def __init__(self, x, y, text):
         self.tutor = Tutor()
-        super(TutorialRoom, self).__init__(self, x, y)
-
-    def introText(self):
-        return
+        super(TutorialRoom, self).__init__(x, y, text)
 
     def modifyPlayer(self, player):
         # Player interaction - interrogation
@@ -23,12 +20,9 @@ class TutorialRoom(Room):
 
 class Bar(Room):
     """ Bar - Special Room """
-    def __init__(self, x, y):
+    def __init__(self, x, y, text):
         self.bartender = Bartender()
-        super(Bar, self).__init__(self, x, y)
-
-    def introText(self):
-        return
+        super(Bar, self).__init__(x, y, text)
 
     def modifyPlayer(self, player):
         # Player interaction - interrogation
@@ -36,12 +30,9 @@ class Bar(Room):
 
 class Bookstore(Room):
     """ Bookstore - special room """
-    def __init__(self, x, y):
+    def __init__(self, x, y, text):
         self.bookworm = Bookworm()
-        super(Bookstore, self).__init__(self, x, y)
-
-    def introText(self):
-        return
+        super(Bookstore, self).__init__(x, y, text)
 
     def modifyPlayer(self, player):
         # Player interaction - interrogation
@@ -49,12 +40,9 @@ class Bookstore(Room):
 
 class GroceryStore(Room):
     """ GroceryStore - special room """
-    def __init__(self, x, y):
+    def __init__(self, x, y, text):
         self.cashier = Cashier()
-        super(GroceryStore, self).__init__(self, x, y)
-
-    def introText(self):
-        return
+        super(GroceryStore, self).__init__(x, y, text)
 
     def modifyPlayer(self, player):
         # Player interaction - interrogation

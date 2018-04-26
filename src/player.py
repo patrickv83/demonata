@@ -30,8 +30,10 @@ class Player(Character):
     def addItem(self, item):
         """ Add Item <item> to player's inventory
             @ReturnType void"""
-        self._inventory.append(item)
-        logging.debug("Added item %s to inventory. Inventory now %s", item.identify(), self._inventory)
+        if not item.isHidden():
+            self._inventory.append(item)
+            logging.debug("Added item %s to inventory. Inventory now %s", 
+                          item.identify(), self._inventory)
 
     def consume(self, consumable):
         """ Consume an item.  Dead players can't consume items.

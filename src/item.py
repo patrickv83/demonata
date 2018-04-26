@@ -11,6 +11,7 @@ class Item(object):
         """@AttributeType String"""
         self._value = value
         """@AttributeType int"""
+        self._hidden = False
 
     def appraise(self):
         """For getting item value
@@ -31,6 +32,18 @@ class Item(object):
         """For setting item name
         @ReturnType String"""
         self._name = name
+
+    def hide(self):
+        """ Set the object to hidden """
+        self._hidden = True
+
+    def isHidden(self):
+        """ Returns bool hidden state of item """
+        return self._hidden
+
+    def find(self):
+        """ Set the object to not hidden """
+        self._hidden = False
 
     def create(self):
         pass
