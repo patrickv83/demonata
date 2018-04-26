@@ -5,8 +5,9 @@ from src.weapon import Weapon
 from src.consumable import *
 
 e = Enemy("Brownie", 10, 2, ET.BROWNIE)
-p = Player("sword gumby", 25, 3, weapon = Weapon(5, "neat shiny sword"))
-c = Consumable.create();
+p = Player("sword gumby", 25, weapon = Weapon(5, "neat shiny sword"))
+c = Consumable.create()
+p.addItem(c)
 
 def test_player_instantiate():
     assert (p.getName() == "sword gumby" and p.getHP() == 25)
@@ -28,8 +29,9 @@ def test_player_name_change():
 #    damage = p.attack(e)
 #    assert e.getHP() == (15 - damage)
 def test_player_consumable_heals():
+    healAmt = c.getValue()
     p.consume(c)
-    assert p.getHP() == min(23+c.getValue(), p.getMaxHP())
+    assert p.getHP() == min(23+healAmt, p.getMaxHP())
 
 def test_player_dead():
     p.takeDamage(50)
