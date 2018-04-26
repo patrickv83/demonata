@@ -55,7 +55,7 @@ class Controller(object):
                          '615': Room(6, 15, self.map['615'][1])      # Apartment
                         }
 
-        self._gameView = GameView(self.getDescriptionText(), self.getMapText(),
+        self._gameView = GameView(self.getDescriptionText(), self.getStatText(),
                                   directions=self.getDirectionOptions(),
                                   actions=self.getActionOptions(),
                                   gameOpts=self.getGameOptions(),
@@ -113,15 +113,13 @@ class Controller(object):
         text = self._visited[self._roomKey].getText()
         return text
 
-    def getMapText(self):
-        """ Returns a formatted string representation of the player's current location,
-            nearby rooms, and direction arrows toward important locations """
-
-        return """<- grocery
-
-                  street  o  street
-
-                  <- bar               """
+    def getStatText(self):
+        """ Returns a formatted string representation of the player's basic stats,
+            including current health / max health, equipped weapon, and damage range """
+        stats = "HP: {}/{}         Equipped weapon: {}        Damage: {}".format(
+            self._player.getHP(), self._player.getMaxHP(),
+            self._player._weapon._name, self._player._weapon.getDamage())
+        return stats
 
     def _canMove(self, direction):
         """ Checks if there is a room in <direction> from current room """
@@ -186,9 +184,9 @@ class Controller(object):
 
     def updateGameView(self):
         """ Updates the GameView screen after player action """
-        text = self.getDescriptionText()
 
-        self._gameView.updateDescription(text)
+        self._gameView.updateDescription(self.getDescriptionText())
+        self._gameView.updateStats(self.getStatText())
         self._gameView.updateDirectionMenu(self.getDirectionOptions())
         self._gameView.updateActionMenu(self.getActionOptions())
         self._gameView.setMenuFocus(0)
