@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 """ The player module """
+import logging
+from random import randint
 from src.character import Character
 
 class Player(Character):
@@ -17,8 +19,6 @@ class Player(Character):
         self._gold = gold
         """@AttributeType Int"""
         self._weapon = weapon
-        #self._room = Room(coords[0], coords[1])
-        # @AssociationType Room
         self._coords = coords
         super(Player, self).__init__(name, hp)
 
@@ -30,6 +30,7 @@ class Player(Character):
         """ Add Item <item> to player's inventory
             @ReturnType void"""
         self._inventory.append(item)
+        logging.debug("Added item %s to inventory. Inventory now %s", item.identify(), self._inventory)
 
     def consume(self, consumable):
         """ Consume an item.  Dead players can't consume items.
@@ -53,6 +54,22 @@ class Player(Character):
         """ Get player's current location
             @ReturnType int,int tuple """
         return self._coords
+
+    def fight(self, enemy):
+        """ Fight an enemy
+            :param enemy: the enemy to fight"""
+        while not (self.isDead() or enemy.isDead()):
+            try:
+                enemy.takeDamage(self._weapon.getDamage())
+            except AttributeError:
+                enemy.takeDamage(randint(1, 5))
+            self.takeDamage(enemy.damage)
+
+
+    def interrogate(self, character):
+        """ Interrogate an NPC
+            :param character: the non-player character to interrogate """
+        pass
 
     def move(self, direction):
         """ Update player's current location

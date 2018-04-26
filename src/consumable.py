@@ -18,6 +18,11 @@ class Consumable(Item):
 #        self.consumableType = consumableType
         super(Consumable, self).__init__(name, desc, value)
 
+    @classmethod
+    def create(cls):
+        """ Create a random consumable """
+        pass
+
     def getUses(self):
         """ Get the number of times the consumable can be used. """
         return self._uses

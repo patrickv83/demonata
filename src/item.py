@@ -3,8 +3,7 @@
 # -*- coding: UTF-8 -*-
 
 class Item(object):
-    """Item class"""
-    def __init__(self, name, desc, value):
+    def __init__(self, name=None, desc=None, value=5):
         """@ReturnType Item"""
         self._name = name
         """@AttributeType String"""
@@ -23,7 +22,7 @@ class Item(object):
         @ReturnType String"""
         return self._desc
 
-    def identity(self):
+    def identify(self):
         """For getting item name
         @ReturnType String"""
         return self._name
@@ -33,6 +32,9 @@ class Item(object):
         @ReturnType String"""
         self._name = name
 
+    def create(self):
+        pass
+
     def __str__(self):
         """@ReturnType String"""
-        pass
+        return self._name

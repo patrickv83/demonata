@@ -13,8 +13,12 @@ class EnemyRoom(Room):
         """ Update player with results of enemy interaction """
         return player
 
-
     def randomEnemy(self):
         """ Precondition: None
             Postcondition: returns random Enemy """
         return Factory.enemyFactory()
+
+    def killEnemy(self):
+        """ Precondition: None
+            Postcondition: Enemy is dead and renamed as such """
+        self.enemy.setName("Corpse of {}".format(self.enemy.getName()))

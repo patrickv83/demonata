@@ -22,7 +22,7 @@ class Weapon(Item):
 
     def getName(self):
         """ReturnType String"""
-        return self.identity()
+        return self.identify()
 
     def __str__(self):
         """ReturnType String"""
