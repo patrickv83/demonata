@@ -8,7 +8,7 @@ class NPC(Character):
     # NPC superclass creates an NPC for special rooms
     def __init__(self, name, hp):
         # @ReturnType NPC
-        super(NPC, self).__init__(self, name, hp)
+        super(NPC, self).__init__(name, hp)
     def react(self, option):
         # NPC Character reaction
         pass
