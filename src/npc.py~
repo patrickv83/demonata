@@ -8,7 +8,7 @@ class NPC(Character):
     """ NPC superclass creates an NPC for special rooms """
     def __init__(self, name, hp):
         """@ReturnType NPC"""
-        super(NPC, self).__init__(name, hp)
+        super(NPC, self).__init__(self, name, hp)
     def react(option):
         """ NPC Character reaction """
         pass
@@ -16,7 +16,7 @@ class NPC(Character):
 class Tutor(NPC):
 """ Tutor - NPC for the TutorialRoom """
     def __init__(self):
-        super(Tutor, self).__init__(name="Tutor", hp=5)
+        super(Tutor, self).__init__(self, name="Tutor", hp=5)
 
     def react(option):
         if option == 1:
@@ -33,7 +33,7 @@ class Tutor(NPC):
 class Bartender(NPC):
 """ Bartender - NPC for the Bar (Special Room) """
     def __init__(self):
-        super(Bartender, self).__init__(name="Bartender", hp=5)
+        super(Bartender, self).__init__(self, name="Bartender", hp=5)
 
     def react(option):
         # Bartender's reactions to interrogation
@@ -51,7 +51,7 @@ class Bartender(NPC):
 class Bookworm(NPC):
 """ Bookworm - NPC for the Bookstore (Special Room) """
     def __init__(self):
-        super(Bookworm, self).__init__(name="Bookworm", hp=5)
+        super(Bookworm, self).__init__(self, name="Bookworm", hp=5)
 
     def react(option):
         # Bookworm tells player what the assistant purchased
@@ -69,7 +69,7 @@ class Bookworm(NPC):
 class Cashier(NPC):
 """ Cashier - NPC for Grocery Store (Special Room) """
     def __init__(self):
-        super(Cashier, self).__init__(name="Cashier", hp=5)
+        super(Cashier, self).__init__(self, name="Cashier", hp=5)
 
     def react(option):
         # Cashier tells player what the assistant purchased

@@ -2,18 +2,18 @@ import unittest
 import pytest
 from src.npc import *
 
-teacher = Tutor()
-bart = Bartender()
-nerd = Bookworm()
-granny = Cashier()
+teacher = npc.Tutor()
+bart = npc.Bartender()
+nerd = npc.Bookworm()
+granny = npc.Cashier()
 
-def test_npc_instantiate(self):
+def test_npc_instantiate():
     assert (teacher.getName() == "Tutor" and teacher.getHP() == 5)
     assert (bart.getName() == "Bartender" and bart.getHP() == 5)
     assert (nerd.getName() == "Bookworm" and nerd.getHP() == 5)
     assert (granny.getName() == "Cashier" and granny.getHP() == 5)
 
-def test_npc_react(self):
+def test_npc_react():
     teacherReaction = teacher.react(2)
     assert teacherReaction == "This option doesn't get you an good info."
 
