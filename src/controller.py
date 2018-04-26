@@ -5,6 +5,7 @@ import csv
 from sys import exit as exitGame
 from os import makedirs
 import errno
+
 import logging
 import dill
 from urwid import MainLoop
@@ -107,6 +108,7 @@ class Controller(object):
 
     def getDescriptionText(self):
         """ Gets the description text from the room at the player's current location
+
             @ReturnType String """
         text = self._visited[self._roomKey].getText()
         return text
@@ -192,7 +194,7 @@ class Controller(object):
         self._gameView.setMenuFocus(0)
 
     def moveCallback(self, button):
-        """ This method updates the gameView object every time the player moves """
+        """ Updates the gameView object every time the player moves """
         functions = {'move_north': (self.movePlayer, Controller.NORTH),
                      'move_south': (self.movePlayer, Controller.SOUTH),
                      'move_east': (self.movePlayer, Controller.EAST),
