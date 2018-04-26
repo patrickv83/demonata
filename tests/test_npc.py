@@ -1,6 +1,6 @@
 import unittest
 import pytest
-from src.npc import *
+from src.npc import NPC, Tutor, Bartender, Bookworm, Cashier
 
 teacher = Tutor()
 bart = Bartender()

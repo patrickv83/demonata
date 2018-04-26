@@ -15,7 +15,7 @@ class NPC(Character):
 
 class Tutor(NPC):
     """ Tutor - NPC for the TutorialRoom """
-    def __init__(self, name, hp):
+    def __init__(self):
         super(Tutor, self).__init__(self, name="Tutor", hp=5)
 
     def react(self, option):
@@ -32,7 +32,7 @@ class Tutor(NPC):
 
 class Bartender(NPC):
     """ Bartender - NPC for the Bar (Special Room) """
-    def __init__(self, name, hp):
+    def __init__(self):
         super(Bartender, self).__init__(self, name="Bartender", hp=5)
 
     def react(self, option):
@@ -50,7 +50,7 @@ class Bartender(NPC):
 
 class Bookworm(NPC):
     """ Bookworm - NPC for the Bookstore (Special Room) """
-    def __init__(self, name, hp):
+    def __init__(self):
         super(Bookworm, self).__init__(self, name="Bookworm", hp=5)
 
     def react(self, option):
@@ -68,7 +68,7 @@ class Bookworm(NPC):
 
 class Cashier(NPC):
     """ Cashier - NPC for Grocery Store (Special Room) """
-    def __init__(self, name, hp):
+    def __init__(self):
         super(Cashier, self).__init__(self, name="Cashier", hp=5)
 
     def react(self, option):
