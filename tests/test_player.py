@@ -5,7 +5,7 @@ from src.weapon import Weapon
 from src.consumable import *
 
 e = Enemy("Brownie", 10, 2, ET.BROWNIE)
-p = Player("sword gumby", 25, 3, weapon = Weapon("sword", "neat shiny sword", 3, 5))
+p = Player("sword gumby", 25, 3, weapon = Weapon(5, "neat shiny sword"))
 bread = Bread();
 
 def test_player_instantiate():
