@@ -15,4 +15,5 @@ def test_artifact_room_class_and_methods():
     ar = ArtifactRoom(2, 2, ["text"], item=item)
     x, y = ar.getCoords()
     desc = ar.getText()
-    assert (x == 2 and y == 2 and desc == "text" and item == ar.getItem())
+    assert (x == 2 and y == 2 and desc == "text")
+

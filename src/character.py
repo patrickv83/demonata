@@ -8,6 +8,7 @@ class Character(object):
         """@ReturnType Character"""
         self._name = name        # @AttributeType String
         self._hp = hp            # @AttributeType int
+        self._maxHP = hp         # @AttributeType int
 
     def getName(self):
         """@ReturnType String"""
@@ -21,13 +22,17 @@ class Character(object):
         """@ReturnType int"""
         return self._hp
 
+    def getMaxHP(self):
+        """@ReturnType int"""
+        return self._maxHP
+
     def setHP(self, hp):
         """Sets character hp"""
         self._hp = hp
 
     def heal(self, hp):
         """Increases character hp"""
-        self.setHP(self._hp + hp)
+        self.setHP(min(self._hp + hp, self._maxHP))
 
     def takeDamage(self, hp):
         """Decreases character hp"""
@@ -36,13 +41,3 @@ class Character(object):
     def isDead(self):
         """@ReturnType boolean"""
         return self._hp <= 0
-
-    #def attack(self, target):
-     #   """@ReturnType int"""
-     #   try:
-     #       weaponDamage = self._weapon.getDamage()
-     #   except AttributeError:
-     #       weaponDamage = 0
-     #   damage = random.randint(1, 1 + self._baseDamage + weaponDamage)
-     #   target.takeDamage(damage)
-     #   return damage
