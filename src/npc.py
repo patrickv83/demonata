@@ -16,7 +16,7 @@ from src.character import Character
 
 class Tutor(Character):
     """ Tutor - NPC for the TutorialRoom """
-    def __init__(self):
+    def __init__(self, name, hp):
         super(Tutor, self).__init__(self, name="Tutor", hp=5)
 
     def react(self, option):
@@ -33,7 +33,7 @@ class Tutor(Character):
 
 class Bartender(Character):
     """ Bartender - NPC for the Bar (Special Room) """
-    def __init__(self):
+    def __init__(self, name, hp):
         super(Bartender, self).__init__(self, name="Bartender", hp=5)
 
     def react(self, option):
@@ -51,7 +51,7 @@ class Bartender(Character):
 
 class Bookworm(Character):
     """ Bookworm - NPC for the Bookstore (Special Room) """
-    def __init__(self):
+    def __init__(self, name, hp):
         super(Bookworm, self).__init__(self, name="Bookworm", hp=5)
 
     def react(self, option):
@@ -69,7 +69,7 @@ class Bookworm(Character):
 
 class Cashier(Character):
     """ Cashier - NPC for Grocery Store (Special Room) """
-    def __init__(self):
+    def __init__(self, name, hp):
         super(Cashier, self).__init__(self, name="Cashier", hp=5)
 
     def react(self, option):
