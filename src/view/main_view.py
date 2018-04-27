@@ -21,12 +21,10 @@ class GameView(object):
         self._controller = kwargs.pop('controller', None)
 
         # Menu stuff
-        optionMenu = urwid.Pile([ActionButton(opt, self._controller.optionCallback)
-                                 for opt in gameOpts])
         self.walker = urwid.SimpleFocusListWalker([])
         cols = urwid.Columns([('weight', 20, self.createDirectionMenu(directions)),
                               ('weight', 40, self.createActionMenu(actions)),
-                              ('weight', 30, optionMenu)], dividechars=2)
+                              ('weight', 30, self.createGameMenu(gameOpts))], dividechars=2)
         self.walker.append(cols)
         self.menu = urwid.BoxAdapter(urwid.ListBox(self.walker), 6)
 
@@ -47,11 +45,18 @@ class GameView(object):
         return urwid.Pile([ActionButton(action, self._controller.actionCallback)
                            for action in actions])
 
+    def createGameMenu(self, options):
+        return urwid.Pile([ActionButton(option, self._controller.optionCallback)
+                           for option in options])
+
     def updateDirectionMenu(self, options):
         self.walker[0].contents[0] = (self.createDirectionMenu(options), ('weight', 20, False))
 
     def updateActionMenu(self, options):
-        self.walker[0].contents[1] = (self.createActionMenu(options), ('weight', 20, False))
+        self.walker[0].contents[1] = (self.createActionMenu(options), ('weight', 40, False))
+
+    def updateGameMenu(self, options):
+        self.walker[0].contents[2] = (self.createGameMenu(options), ('weight', 30, False))
 
     def updateStats(self, newText):
         self._statText.set_text(newText)

@@ -34,7 +34,7 @@ class Controller(object):
             Load game: self._startingPosition = startCoords """
 
         self._saveDir = 'saves'
-        self._player = Player("Patrick", 15, gold=100)
+        self._player = Player("Patrick", 100, gold=100)
         self._playerLocation = startCoords
         self._room = None
         self.map = None
@@ -162,10 +162,11 @@ class Controller(object):
 
         return options
 
-    def getGameOptions(self):
+    def getGameOptions(self, options=None):
         """ Returns the metagame options (e.g. Save, Load, Quit)
             ReturnType list of strings """
-        options = ["Save", "Load", "Exit game"]
+        options = ["Save", "Load", "Exit game"] if options is None else options
+        logging.debug("Updating game menu with %s", options)
         return options
 
     def movePlayer(self, direction):
@@ -190,14 +191,15 @@ class Controller(object):
             logging.debug('Room %s', self._roomKey)
             logging.debug('Room description: %s', self._room.getText())
 
-    def updateGameView(self):
+    def updateGameView(self, focus=0, options=None):
         """ Updates the GameView screen after player action """
 
         self._gameView.updateDescription(self.getDescriptionText())
         self._gameView.updateStats(self.getStatText())
         self._gameView.updateDirectionMenu(self.getDirectionOptions())
         self._gameView.updateActionMenu(self.getActionOptions())
-        self._gameView.setMenuFocus(0)
+        self._gameView.updateGameMenu(self.getGameOptions(options))
+        self._gameView.setMenuFocus(focus)
 
     def moveCallback(self, button):
         """ Updates the gameView object every time the player moves """
@@ -217,7 +219,8 @@ class Controller(object):
             game options menu (save/load/quit/etc) """
         functions = {'save': self.saveGame,
                      'load': self.loadGame,
-                     'exit_game': exitGame}
+                     'exit_game': exitGame,
+                     'new_game': self._initialView._new_game}
         label = button._w.original_widget.text.lower().replace(' ', '_')
         try:
             functions[label]()
@@ -232,6 +235,8 @@ class Controller(object):
             Postcondition: The appropriate action method is run
             @ReturnType None"""
         label = button._w.original_widget.text.lower().replace(' ', '_')
+        focus=1
+        options=None
         try:
             if self._room.item.isHidden():
                 logging.debug("Trying to search the room")
@@ -246,6 +251,7 @@ class Controller(object):
                 logging.debug(self._room.item)
                 self._player.addItem(self._room.item)
                 self._room.removeItem()
+                focus=0
         except AttributeError:
             logging.debug("No item in room")
             try:
@@ -256,8 +262,15 @@ class Controller(object):
                               self._room.enemy.getHP())
                 if self._room.enemy.isDead():
                     self._room.killEnemy()
+                    focus=0
                 else:
-                    self.playerDead()
+                    self._player._coords = (99, 99)
+                    self._playerLocation = (99, 99)
+                    self._roomKey = '9999'
+                    self._room = Room(99, 99, self.map[self._roomKey][1])
+                    self._visited[self._roomKey] = self._room
+                    focus = 2
+                    options=["New game", "Load", "Exit game"]
             except AttributeError:
                 logging.debug("No enemy to fight")
                 try:
@@ -265,19 +278,8 @@ class Controller(object):
                 except AttributeError:
                     pass
         finally:
-            self.updateGameView()
+            self.updateGameView(focus=focus, options=options)
             logging.debug("Action menu item %s pressed", label)
-
-    def playerDead(self):
-        """ Handle the player dying """
-        self._player._coords = (99, 99)
-        self._playerLocation = (99, 99)
-        self._roomKey = '9999'
-        self._room = Room(99, 99, self.map[self._roomKey][1])
-        self._visited[self._roomKey] = self._room
-        self.updateGameView()
-        self._gameView.setMenuFocus(0)
-        self._gameView.screen.draw_screen()
 
     def saveGame(self):
         """ Pickles the controller state and player to save the current game state
